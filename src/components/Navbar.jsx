@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Navbar() {
   return (
     <header className="bg-transparent z-10 relative">
@@ -12,12 +14,12 @@ function Navbar() {
               Download
             </button>
             <div className="flex items-center gap-[39px]">
-              <button className="outline-none border-none cursor-pointer text-[20px] leading-[26px] font-[400] text-white">
+              <Link to='/auth/login' className="outline-none border-none cursor-pointer text-[20px] leading-[26px] font-[400] text-white">
                 Login{" "}
-              </button>
-              <button className="outline-none text-[20px] border-[1px] cursor-pointer border-[#FFFFFF] py-[22px] px-[40px] rounded-[22px] leading-[26px] font-[400] text-white">
+              </Link>
+              <Link to='/auth/register' className="outline-none text-[20px] border-[1px] cursor-pointer border-[#FFFFFF] py-[22px] px-[40px] rounded-[22px] leading-[26px] font-[400] text-white">
                 Register web
-              </button>
+              </Link>
             </div>
           </div>
           <img src="/hamburger.svg" className="block lg:hidden" />
