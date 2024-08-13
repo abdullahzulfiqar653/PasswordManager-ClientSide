@@ -4,7 +4,7 @@ function Login() {
   return (
     <section className="flex min-h-screen w-full justify-between flex-col-reverse lg:flex-row">
       <section className="w-full lg:w-[45%] lg:px-[100px] pb-[54px] lg:pb-[182px] flex justify-center items-center">
-        <div className="hidden lg:block flex flex-col gap-[26px] mt-[95px]">
+        <div className="hidden lg:flex flex-col gap-[26px] mt-[95px]">
           <div className="flex flex-col gap-[29px] max-w-[450px]">
             <Link to="/" className="flex items-center gap-[15px]">
               <img src="/logo.svg" className="cursor-pointer" />
@@ -23,7 +23,7 @@ function Login() {
         <img className="block lg:hidden" src="/loginlockv2.svg" />
       </section>
       <section className="w-full flex-col items-center lg:w-[55%] bg-[#101E71] rounded-[0px_0px_60px_60px] lg:rounded-[166px_0px_0px_166px] px-[20px] lg:px-[85px] pb-[34px] lg:pb-[182px] flex justify-center">
-        <nav className="block lg:hidden flex justify-center items-center py-[14px] gradient-border">
+        <nav className="lg:hidden flex justify-center items-center py-[14px] gradient-border">
           <Link to="/" className="flex items-center gap-[15px]">
             <img src="/logov2.svg" className="cursor-pointer" />
             <h2 className="text-[12px] leading-[36px] font-[400] text-white">
