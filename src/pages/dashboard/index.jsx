@@ -12,7 +12,7 @@ function Home() {
           <ul className="flex flex-col gap-[16px]">
             <li>
               <Link
-                to="/"
+                to="/dashboard/123"
                 className="folder-wrapper active h-[54px] flex gap-[8px] items-center py-[6px] px-[13px] pl-[21px]"
               >
                 <Bar />
@@ -26,13 +26,13 @@ function Home() {
               <ul className="flex flex-col gap-[16px] pl-[33px] bg-[#010E59]">
                 <li>
                   <Link
-                    to="/"
+                    to="/dashboard/123"
                     className="h-[54px] flex gap-[8px] items-center py-[6px] px-[13px] pl-[21px]"
                   >
                     <Recycle />
                     <div className="flex h-full gap-[15px] items-center">
                       <h4 className="text-[#DFDFDF] text-[12px] leading-[32px] font-[400] dm-sans">
-                        Database folder 2
+                      Recycle bin
                       </h4>
                     </div>
                   </Link>
@@ -41,7 +41,7 @@ function Home() {
             </li>
             <li>
               <Link
-                to="/"
+                to="/dashboard/123"
                 className="folder-wrapper h-[54px] flex gap-[8px] items-center py-[6px] px-[13px] pl-[21px]"
               >
                 <Bar />
