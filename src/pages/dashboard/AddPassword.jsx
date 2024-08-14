@@ -14,21 +14,21 @@ function AddPassword() {
   };
 
   return (
-    <section className="w-full relative flex mt-[43px] pb-[56px] container gap-[7px]">
-      <section className="flex-1 flex flex-col gap-[20px]">
+    <section className="w-full relative flex mt-[42px] pb-[56px] container gap-[7px]">
+      <section className="w-full flex-1 flex flex-col md:gap-[20px]">
         <h4 className=" text-white text-[32px] leading-[64px] font-[400]">
           Root . Add Entry
         </h4>
         <form className="flex flex-col gap-[25px]">
           <div className="flex flex-col gap-[15px] md:gap-[38px] flex-wrap md:flex-row">
             <div className="flex-1 flex flex-col gap-[4px]">
-              <label className="dm-sans text-[#DFDFDF] text-[16px] leading-[32px] font-[400]">
+              <label className="dm-sans text-[#DFDFDF] text-[9.77px] sm:text-[16px] leading-[19.54px] sm:leading-[32px] font-[400]">
                 Title
               </label>
               <input className="w-full dm-sans border-[1px] rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]" />
             </div>
             <div className="flex-1 flex flex-col gap-[4px]">
-              <label className="dm-sans text-[#DFDFDF] text-[16px] leading-[32px] font-[400]">
+              <label className="dm-sans text-[#DFDFDF] text-[9.77px] sm:text-[16px] leading-[19.54px] sm:leading-[32px] font-[400]">
                 Username
               </label>
               <input className="w-full dm-sans border-[1px] rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]" />
@@ -36,7 +36,7 @@ function AddPassword() {
           </div>
           <div className="flex flex-col gap-[15px] md:gap-[38px] flex-wrap md:flex-row">
             <div className="flex-1 flex flex-col gap-[4px]">
-              <label className="dm-sans text-[#DFDFDF] text-[16px] leading-[32px] font-[400]">
+              <label className="dm-sans text-[#DFDFDF] text-[9.77px] sm:text-[16px] leading-[19.54px] sm:leading-[32px] font-[400]">
                 Password
               </label>
               <div className="relative flex-1">
@@ -53,7 +53,7 @@ function AddPassword() {
               </div>
             </div>
             <div className="flex-1 flex flex-col gap-[4px]">
-              <label className="dm-sans text-[#DFDFDF] text-[16px] leading-[32px] font-[400]">
+              <label className="dm-sans text-[#DFDFDF] text-[9.77px] sm:text-[16px] leading-[19.54px] sm:leading-[32px] font-[400]">
                 URL
               </label>
               <input
@@ -64,7 +64,7 @@ function AddPassword() {
           </div>
           <div className="flex flex-col gap-[15px] md:gap-[38px] flex-wrap md:flex-row">
             <div className="relative flex-1 flex flex-col gap-[4px]">
-              <label className="dm-sans text-[#DFDFDF] text-[16px] leading-[32px] font-[400]">
+              <label className="dm-sans text-[#DFDFDF] text-[9.77px] sm:text-[16px] leading-[19.54px] sm:leading-[32px] font-[400]">
                 Select Emoji
               </label>
               <div
@@ -94,14 +94,14 @@ function AddPassword() {
               {showPicker && <EmojiPicker onEmojiClick={onEmojiClick} />}
             </div>
             <div className="flex-1 flex flex-col gap-[4px]">
-              <label className="dm-sans text-[#DFDFDF] text-[16px] leading-[32px] font-[400]">
+              <label className="dm-sans text-[#DFDFDF] text-[9.77px] sm:text-[16px] leading-[19.54px] sm:leading-[32px] font-[400]">
                 Tags
               </label>
               <input className="w-full dm-sans border-[1px] rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]" />
             </div>
           </div>
           <div className="flex flex-col gap-[4px]">
-            <label className="dm-sans text-[#DFDFDF] text-[16px] leading-[32px] font-[400]">
+            <label className="dm-sans text-[#DFDFDF] text-[9.77px] sm:text-[16px] leading-[19.54px] sm:leading-[32px] font-[400]">
               Notes
             </label>
             <textarea
