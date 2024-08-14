@@ -14,10 +14,10 @@ function RegisterInstruction({agreementHandler}) {
       <form className="flex flex-col gap-[42px] lg:gap-[92px]">
         <div className="flex flex-col gap-[4px]">
           <div className="flex flex-col gap-[9px]">
-            <p className="text-[#DFDFDF] text-[16px] leading-[27px] font-[400] text-center">
+            <p className="dm-sans text-[#DFDFDF] text-[16px] leading-[27px] font-[400] text-center">
               Important Note :
             </p>
-            <p className="text-[#DFDFDF] text-[16px] leading-[27px] font-[400] text-center">
+            <p className="dm-sans text-[#DFDFDF] text-[16px] leading-[27px] font-[400] text-center">
               On the next page you will see a series of 16 words. This is your
               unique and private seed and it is the ONLY way to recover your
               wallet in case of loss or manifestation. It is your responsibility
@@ -28,7 +28,7 @@ function RegisterInstruction({agreementHandler}) {
         </div>
         <div className="flex flex-col gap-[14.64px] lg:gap-[32px]">
           <button
-            className="mx-[auto] bg-[linear-gradient(90deg,_#A143FF_0%,_#5003DB_100%)] py-[10px] 
+            className="dm-sans mx-[auto] bg-[linear-gradient(90deg,_#A143FF_0%,_#5003DB_100%)] py-[10px] 
               lg:py-[19px] max-w-[312px] w-[100%] rounded-[11.61px] lg:rounded-[18.37px] outline-none 
               border-none text-[12px] lg:text-[15.5px] leading-[15.26px] 
               lg:leading-[20.18px] font-[400] text-white"
@@ -36,7 +36,7 @@ function RegisterInstruction({agreementHandler}) {
           >
             I understand, show me my seed
           </button>
-          <p className="text-center text-[#DFDFDF] text-[12px] lg:text-[16px] leading-[32px] font-[400]">
+          <p className="dm-sans text-center text-[#DFDFDF] text-[12px] lg:text-[16px] leading-[32px] font-[400]">
             Already have account?
             <Link className="text-[#A143FF]" to="/auth/login">
               {" "}

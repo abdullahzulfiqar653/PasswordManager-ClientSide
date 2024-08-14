@@ -12,7 +12,7 @@ function Login() {
                 Password Manager
               </h2>
             </Link>
-            <p className="text-[18px] leading-[26px] font-[400] text-white">
+            <p className="dm-sans text-[18px] leading-[26px] font-[400] text-white">
               Login to your account with seed , We do the heavy lifting in a
               no-nonsense, ad-free, tracker-free, and cloud-free manner. Free
               and open source.
@@ -39,10 +39,10 @@ function Login() {
           <h3 className="text-white text-center text-[31px] lg:text-[46px] leading-[43px] lg:leading-[64px] font-[400]">
             Log In
           </h3>
-          <form className="flex flex-col gap-[42px] lg:gap-[92px]">
+          <form onSubmit={(e)=> e.preventDefault()} className="flex flex-col gap-[42px] lg:gap-[92px]">
             <div className="flex flex-col gap-[4px]">
               <div className="flex items-center justify-between">
-                <label className="text-[#DFDFDF] text-[16px] leading-[32px] font-[400]">
+                <label className="dm-sans text-[#DFDFDF] text-[16px] leading-[32px] font-[400]">
                   Key Seed
                 </label>
                 <span>
@@ -57,50 +57,49 @@ function Login() {
                     <path
                       d="M9 14L12.5 17.5L19.5 10"
                       stroke="white"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                   </svg>
                 </span>
               </div>
               <input
-                className="border-[1px] rounded-[10px] border-[#28399F] outline-none bg-[#0E1A60] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]"
+                className="dm-sans border-[1px] rounded-[10px] border-[#28399F] outline-none bg-[#0E1A60] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]"
                 placeholder="Enter your key seed..."
               />
               <div className="border-[1px] flex gap-[8px] py-[21px] px-[19px] flex-wrap border-[#28399F] outline-none bg-[#0E1A60]">
-                <span className="border-[#9F42FF] border-[1px] px-[8px] text-[16px] leading-[27px] font-[400] text-white rounded-[6px]">
-                  POWER
-                </span>
-                <span className="border-[#9F42FF] border-[1px] px-[8px] text-[16px] leading-[27px] font-[400] text-white rounded-[6px]">
-                  POWER
-                </span>
-                <span className="border-[#9F42FF] border-[1px] px-[8px] text-[16px] leading-[27px] font-[400] text-white rounded-[6px]">
-                  POWER
-                </span>
+                {[1, 2, 3, 4].map((_, index) => (
+                  <span
+                    key={index}
+                    className="dm-sans border-[#9F42FF] border-[1px] px-[8px] text-[16px] leading-[27px] font-[400] text-white rounded-[6px]"
+                  >
+                    POWER
+                  </span>
+                ))}
               </div>
-              <div className="flex gap-[8px] mt-[11px]">
-                <span className="border-[#9F42FF] border-[1px] px-[8px] text-[16px] leading-[27px] font-[400] text-white rounded-[6px]">
-                  POWER
-                </span>
-                <span className="border-[#9F42FF] border-[1px] px-[8px] text-[16px] leading-[27px] font-[400] text-white rounded-[6px]">
-                  POWER
-                </span>
-                <span className="border-[#9F42FF] border-[1px] px-[8px] text-[16px] leading-[27px] font-[400] text-white rounded-[6px]">
-                  POWER
-                </span>
+              <div className="flex gap-[8px] mt-[11px] flex-wrap">
+                {[1, 2, 3, 4, 5, 6, 7].map((_, index) => (
+                  <span
+                    key={index}
+                    className="dm-sans border-[#9F42FF] border-[1px] px-[8px] text-[16px] leading-[27px] font-[400] text-white rounded-[6px]"
+                  >
+                    POWER
+                  </span>
+                ))}
               </div>
             </div>
             <div className="flex flex-col gap-[14.64px] lg:gap-[32px]">
               <button
+                type="submit"
                 className="mx-[auto] bg-[linear-gradient(90deg,_#A143FF_0%,_#5003DB_100%)] py-[10px] 
               lg:py-[19px] max-w-[312px] w-[100%] rounded-[11.61px] lg:rounded-[18.37px] outline-none 
               border-none text-[12px] lg:text-[15.5px] leading-[15.26px] 
-              lg:leading-[20.18px] font-[400] text-[#FFFFFF66]"
+              lg:leading-[20.18px] font-[400] text-[#FFFFFF66] dm-sans"
               >
                 Next
               </button>
-              <p className="text-center text-[#DFDFDF] text-[12px] lg:text-[16px] leading-[32px] font-[400]">
+              <p className="dm-sans text-center text-[#DFDFDF] text-[12px] lg:text-[16px] leading-[32px] font-[400]">
                 Don’t you have any account?{" "}
                 <Link className="text-[#A143FF]" to="/auth/register">
                   {" "}

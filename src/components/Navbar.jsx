@@ -10,14 +10,14 @@ function Navbar() {
             <h2 className="text-[22px] text-white">Password Manager</h2>
           </div>
           <div className="items-center gap-[95px] hidden lg:flex">
-            <button className="outline-none cursor-pointer border-none text-[20px] leading-[26px] font-[400] text-white">
+            <button className="dm-sans outline-none cursor-pointer border-none text-[20px] leading-[26px] font-[400] text-white">
               Download
             </button>
             <div className="flex items-center gap-[39px]">
-              <Link to='/auth/login' className="outline-none border-none cursor-pointer text-[20px] leading-[26px] font-[400] text-white">
+              <Link to='/auth/login' className="dm-sans outline-none border-none cursor-pointer text-[20px] leading-[26px] font-[400] text-white">
                 Login{" "}
               </Link>
-              <Link to='/auth/register' className="outline-none text-[20px] border-[1px] cursor-pointer border-[#FFFFFF] py-[22px] px-[40px] rounded-[22px] leading-[26px] font-[400] text-white">
+              <Link to='/auth/register' className="dm-sans outline-none text-[20px] border-[1px] cursor-pointer border-[#FFFFFF] py-[22px] px-[40px] rounded-[22px] leading-[26px] font-[400] text-white">
                 Register web
               </Link>
             </div>

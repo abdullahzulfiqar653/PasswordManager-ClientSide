@@ -12,7 +12,7 @@ function Home() {
               max-w-[247px] w-full gradient-border-v2 rounded-[6px]"
               >
                 <img src="/lock.svg" />
-                <h4 className="text-[8px] lg:text-[12px] font-[400] text-[#FDC60B]">
+                <h4 className="dm-sans text-[8px] lg:text-[12px] font-[400] text-[#FDC60B]">
                   Cross-platform Password Manager
                 </h4>
               </div>
@@ -21,7 +21,7 @@ function Home() {
                   <h1 className="text-[34px] lg:text-[56px] font-[400] leading-[40.46px] lg:leading-[64px] text-white">
                     Password Manager PC Protect your systems
                   </h1>
-                  <p className="text-[12px] lg:text-[16px] font-[400] leading-[20.23px] lg:leading-[32px] text-white">
+                  <p className="dm-sans text-[12px] lg:text-[16px] font-[400] leading-[20.23px] lg:leading-[32px] text-white">
                     Let us store your passwords and auto-fill them into your
                     favorite apps, so you can forget all about them. <br />
                     We do the heavy lifting in a no-nonsense, ad-free,
@@ -31,8 +31,8 @@ function Home() {
                 <button
                   className="bg-[linear-gradient(90deg,_#A143FF_0%,_#5003DB_100%)] py-[10px] 
                 lg:py-[18px] px-[37px] rounded-[11.61px] lg:rounded-[18.37px] w-fit outline-none 
-                border-none flex gap-[5.71px] lg:gap-[10px] text-[12px] lg:text-[15.5px] leading-[15.26px] 
-                lg:leading-[20.18px] font-[400] text-white"
+                border-none flex items-center gap-[5.71px] lg:gap-[10px] text-[12px] lg:text-[15.5px] leading-[15.26px] 
+                lg:leading-[20.18px] font-[400] text-white dm-sans"
                 >
                   <img src="/download.svg" />
                   Download

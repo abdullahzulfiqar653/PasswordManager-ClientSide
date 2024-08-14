@@ -17,7 +17,7 @@ function Register() {
                 Password Manager
               </h2>
             </Link>
-            <p className="text-[18px] leading-[26px] font-[400] text-white">
+            <p className="dm-sans text-[18px] leading-[26px] font-[400] text-white">
               Login to your account with seed , We do the heavy lifting in a
               no-nonsense, ad-free, tracker-free, and cloud-free manner. Free
               and open source.

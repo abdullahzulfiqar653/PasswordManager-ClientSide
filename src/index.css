@@ -9,8 +9,10 @@ main {
   display: flex;
   align-items: center;
 }
-.hero-section {
-  /* min-height: calc(100vh - 96px); */
+.dm-sans {
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 .gradient-border {
@@ -37,4 +39,28 @@ main {
   position: relative;
   width: 255px;
   height: 255px;
+}
+
+.folder-wrapper svg.bar{
+  display: none;
+}
+.folder-wrapper.active{
+  background: linear-gradient(90deg, #4307AE 0%, #664C95 97.91%);
+}
+.folder-wrapper.active svg.bar{
+  display: block;
+}
+.epr_q53mwh.epr_-8ygbw8.epr_346qu6.epr_-lzq3oa{
+  display: none !important;
+}
+.EmojiPickerReact{
+  position: absolute !important;
+  background: #101E71 !important;
+  border: 1px solid #374CC4 !important;
+  top: 100% !important;
+  width: 100% !important;
+}
+.epr-emoji-category-label{
+  background-color: transparent !important;
+  color: rgb(223 223 223) !important;
 }
