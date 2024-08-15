@@ -52,6 +52,12 @@ main {
 .folder-wrapper .active svg.bar {
   display: block;
 }
+.folder-wrapper .recycle{
+  display: none;
+}
+.folder-wrapper:hover .recycle{
+  display: block;
+}
 .epr_q53mwh.epr_-8ygbw8.epr_346qu6.epr_-lzq3oa {
   display: none !important;
 }
