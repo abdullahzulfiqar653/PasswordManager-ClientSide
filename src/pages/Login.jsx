@@ -1,14 +1,14 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from '../AuthContext';
+import { useAuth } from "../AuthContext";
 
 function Login() {
   const navigate = useNavigate();
   const { isAuthenticated, login, logout } = useAuth();
-  const handleLogin= (e)=>{
-    e.preventDefault()
-    login()
-    navigate('/dashboard')
-  }
+  const handleLogin = (e) => {
+    e.preventDefault();
+    login();
+    navigate("/dashboard/folders");
+  };
   return (
     <section className="flex min-h-screen w-full justify-between flex-col-reverse lg:flex-row">
       <section className="w-full lg:w-[45%] lg:px-[100px] pb-[54px] lg:pb-[182px] flex justify-center items-center">
@@ -47,7 +47,10 @@ function Login() {
           <h3 className="text-white text-center text-[31px] lg:text-[46px] leading-[43px] lg:leading-[64px] font-[400]">
             Log In
           </h3>
-          <form onSubmit={handleLogin} className="flex flex-col gap-[42px] lg:gap-[92px]">
+          <form
+            onSubmit={handleLogin}
+            className="flex flex-col gap-[42px] lg:gap-[92px]"
+          >
             <div className="flex flex-col gap-[4px]">
               <div className="flex items-center justify-between">
                 <label className="dm-sans text-[#DFDFDF] text-[16px] leading-[32px] font-[400]">

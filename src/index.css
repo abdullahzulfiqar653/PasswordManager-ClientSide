@@ -41,26 +41,28 @@ main {
   height: 255px;
 }
 
-.folder-wrapper svg.bar{
+.folder-wrapper svg.bar {
   display: none;
 }
-.folder-wrapper.active{
-  background: linear-gradient(90deg, #4307AE 0%, #664C95 97.91%);
+.folder-wrapper.active,
+.folder-wrapper .active {
+  background: linear-gradient(90deg, #4307ae 0%, #664c95 97.91%);
 }
-.folder-wrapper.active svg.bar{
+.folder-wrapper.active svg.bar,
+.folder-wrapper .active svg.bar {
   display: block;
 }
-.epr_q53mwh.epr_-8ygbw8.epr_346qu6.epr_-lzq3oa{
+.epr_q53mwh.epr_-8ygbw8.epr_346qu6.epr_-lzq3oa {
   display: none !important;
 }
-.EmojiPickerReact{
+.EmojiPickerReact {
   position: absolute !important;
-  background: #101E71 !important;
-  border: 1px solid #374CC4 !important;
+  background: #101e71 !important;
+  border: 1px solid #374cc4 !important;
   top: 100% !important;
   width: 100% !important;
 }
-.epr-emoji-category-label{
+.epr-emoji-category-label {
   background-color: transparent !important;
   color: rgb(223 223 223) !important;
 }

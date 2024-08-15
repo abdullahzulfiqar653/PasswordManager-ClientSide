@@ -9,7 +9,11 @@ module.exports = {
       center: true,
       padding: '20px',
     },
-    extend: {},
+    extend: {
+        screens: {
+          'xs': '400px',
+        },
+    },
   },
   plugins: [],
 }
