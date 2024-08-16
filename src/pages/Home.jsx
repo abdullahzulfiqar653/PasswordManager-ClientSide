@@ -9,7 +9,7 @@ function Home() {
             <section className="relative z-10 md:max-w-[330px] lg:max-w-[534px]  w-full flex flex-col gap-[4.4px] lg:gap-[6px]">
               <div
                 className="flex gap-[7px] items-center justify-center py-[8px] px-[8px] 
-              max-w-[247px] w-full gradient-border-v2 rounded-[6px]"
+              max-w-[247px] w-full gradient-border-v2 rounded-[6px] bg-[#FFFFFF24]"
               >
                 <img src="/lock.svg" />
                 <h4 className="dm-sans text-[8px] lg:text-[12px] font-[400] text-[#FDC60B]">
