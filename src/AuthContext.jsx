@@ -3,7 +3,8 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768); // Adjust breakpoint as needed
-
+  const [showSaveConfirmationModal, setShowSaveConfirmationModal] = useState(false);
+  const [showGeneratePassModal, setShowGeneratePassModal] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const login = () => {
@@ -14,6 +15,13 @@ export const AuthProvider = ({ children }) => {
     setIsAuthenticated(false);
   };
 
+  const handleSaveConfirmationModalVisibility = () => {
+    setShowSaveConfirmationModal((prev) => !prev);
+  };
+  const handleGeneratePassVisibility = () => {
+    setShowGeneratePassModal((prev) => !prev);
+  };
+
   useEffect(() => {
     const handleResize = () => setIsDesktop(window.innerWidth >= 768);
     window.addEventListener("resize", handleResize);
@@ -21,7 +29,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout, isDesktop }}>
+    <AuthContext.Provider value={{ isAuthenticated, login, logout, isDesktop, handleSaveConfirmationModalVisibility,handleGeneratePassVisibility, showSaveConfirmationModal, showGeneratePassModal }}>
       {children}
     </AuthContext.Provider>
   );

@@ -48,7 +48,7 @@ function AddPassword() {
                   onClick={passwordVisibilityHandler}
                   className="cursor-pointer absolute top-[50%] right-[13px] translate-y-[-50%]"
                 >
-                  {isPasswordShow ? <CloseEye /> : <OpenEye />}
+                  {isPasswordShow ? <OpenEye /> : <CloseEye />}
                 </span>
               </div>
             </div>

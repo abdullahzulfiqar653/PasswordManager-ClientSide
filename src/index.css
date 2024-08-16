@@ -52,10 +52,10 @@ main {
 .folder-wrapper .active svg.bar {
   display: block;
 }
-.folder-wrapper .recycle{
+.folder-wrapper .recycle {
   display: none;
 }
-.folder-wrapper:hover .recycle{
+.folder-wrapper:hover .recycle {
   display: block;
 }
 .epr_q53mwh.epr_-8ygbw8.epr_346qu6.epr_-lzq3oa {
@@ -71,4 +71,14 @@ main {
 .epr-emoji-category-label {
   background-color: transparent !important;
   color: rgb(223 223 223) !important;
+}
+.password-input::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  left: 2px;
+  width: 50%;
+  border-radius: 0px 0px 10px 10px;
+  background: linear-gradient(90deg, #5003db 0%, #a143ff 100%);
 }
