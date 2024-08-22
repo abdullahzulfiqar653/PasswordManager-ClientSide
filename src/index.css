@@ -9,6 +9,7 @@ main {
   display: flex;
   align-items: center;
 }
+
 .dm-sans {
   font-family: "DM Sans", sans-serif;
   font-optical-sizing: auto;
