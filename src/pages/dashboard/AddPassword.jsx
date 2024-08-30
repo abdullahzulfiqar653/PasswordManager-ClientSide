@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import EmojiPicker from "emoji-picker-react";
+import useAddPassword from "../../hooks/useAddPassword";
+import { useNavigate } from "react-router-dom";
 
 function AddPassword() {
   const [isPasswordShow, setIsPasswordShow] = useState(false);
@@ -11,6 +13,37 @@ function AddPassword() {
     console.log(emojiObject.emoji, "emojiObject");
     setInputStr((prevInput) => prevInput + emojiObject.emoji);
     setShowPicker(false);
+    const emojiCodePoint = emojiObject.emoji.codePointAt(0).toString(16);
+    const unicodeEmoji = `${emojiCodePoint}`;
+  setFormData((prevFormData) => ({
+    ...prevFormData,
+    emoji: unicodeEmoji,
+  }));
+  
+  };
+  const navigate = useNavigate();
+ const {mutate}=useAddPassword();
+  const [formData, setFormData] = useState({
+    title: "",
+    username: "",
+    password: "",
+    url: "",
+    notes: "",
+    emoji: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    mutate(formData);
+    navigate("/dashboard/folders");
   };
 
   return (
@@ -25,13 +58,23 @@ function AddPassword() {
               <label className="dm-sans text-[#DFDFDF] text-[9.77px] sm:text-[16px] leading-[19.54px] sm:leading-[32px] font-[400]">
                 Title
               </label>
-              <input className="w-full dm-sans border-[1px] rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]" />
+              <input
+                name="title"
+                value={formData.title}
+                onChange={handleChange}
+                className="w-full dm-sans border-[1px] rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]"
+              />
             </div>
             <div className="flex-1 flex flex-col gap-[4px]">
               <label className="dm-sans text-[#DFDFDF] text-[9.77px] sm:text-[16px] leading-[19.54px] sm:leading-[32px] font-[400]">
                 Username
               </label>
-              <input className="w-full dm-sans border-[1px] rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]" />
+              <input
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+                className="w-full dm-sans border-[1px] rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]"
+              />
             </div>
           </div>
           <div className="flex flex-col gap-[15px] md:gap-[38px] flex-wrap md:flex-row">
@@ -41,6 +84,9 @@ function AddPassword() {
               </label>
               <div className="relative flex-1">
                 <input
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
                   type={isPasswordShow ? "text" : "password"}
                   className="w-full dm-sans border-[1px] rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]"
                 />
@@ -57,6 +103,9 @@ function AddPassword() {
                 URL
               </label>
               <input
+                name="url"
+                value={formData.url}
+                onChange={handleChange}
                 className="w-full dm-sans border-[1px] rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]"
                 placeholder="https://examples.com"
               />
@@ -72,9 +121,9 @@ function AddPassword() {
                 onClick={() => setShowPicker((val) => !val)}
               >
                 <input
+                  name="emoji"
                   type="text"
                   value={inputStr}
-                  onChange={(e) => setInputStr(e.target.value)}
                   className="w-full dm-sans border-[1px] rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]"
                 />
                 <svg
@@ -105,6 +154,9 @@ function AddPassword() {
               Notes
             </label>
             <textarea
+              name="notes"
+              value={formData.notes}
+              onChange={handleChange}
               rows={5}
               className=" w-full dm-sans border-[1px] rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]"
             ></textarea>
@@ -114,6 +166,7 @@ function AddPassword() {
               Cancel
             </button>
             <button
+              onClick={handleSubmit}
               className="py-[17px] w-[140px] rounded-[18.37px] bg-[#101E71] border-none outline-none text-white text-[15.5px] font-[400] 
             dm-sans
             bg-[linear-gradient(90deg,_#A143FF_0%,_#5003DB_100%)]

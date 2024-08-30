@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./layout";
 import ProtectedRoute from "./ProtectedRoute";
+import PublicRoute from "./PublicRoute";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
@@ -11,15 +12,26 @@ import PasswordFolder from "../pages/dashboard/PasswordFolder";
 import AddPassword from "../pages/dashboard/AddPassword";
 import FoldersList from "../pages/dashboard/FoldersList";
 import { useAuth } from "../AuthContext";
+import useVerifyToken from "../hooks/useVerifyToken";
 
 const AppRoutes = () => {
-  const { isDesktop } = useAuth();
+  const { isDesktop,login } = useAuth();
+  const {mutate}=useVerifyToken(login);
+ useEffect(()=>{
+    mutate(localStorage.getItem("access_token"))
+ },[])
   return (
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/auth/login" element={<Login />} />
-        <Route path="/auth/register" element={<Register />} />
+        <Route
+          path="/auth/login"
+          element={<PublicRoute element={<Login />} />}
+        />
+        <Route
+          path="/auth/register"
+          element={<PublicRoute element={<Register />} />}
+        />
         <Route
           path="/dashboard/add"
           element={<ProtectedRoute element={<AddPassword />} />}
@@ -29,7 +41,10 @@ const AppRoutes = () => {
             path="/dashboard/folders"
             element={<ProtectedRoute element={<Dashboard />} />}
           >
-            <Route path=":folderId" element={<PasswordFolder />} />
+            <Route
+              path=":folderId"
+              element={<ProtectedRoute element={<PasswordFolder />} />}
+            />
           </Route>
         ) : (
           <>

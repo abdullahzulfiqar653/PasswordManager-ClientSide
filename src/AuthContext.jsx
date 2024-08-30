@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
-const AuthContext = createContext();
+const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768); // Adjust breakpoint as needed
@@ -11,10 +11,13 @@ export const AuthProvider = ({ children }) => {
     setIsAuthenticated(true);
   };
 
+  const signup=()=>{
+    setIsAuthenticated(true);
+  };
   const logout = () => {
     setIsAuthenticated(false);
   };
-
+  
   const handleSaveConfirmationModalVisibility = () => {
     setShowSaveConfirmationModal((prev) => !prev);
   };
@@ -29,7 +32,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout, isDesktop, handleSaveConfirmationModalVisibility,handleGeneratePassVisibility, showSaveConfirmationModal, showGeneratePassModal }}>
+    <AuthContext.Provider value={{ isAuthenticated, login,signup, logout, isDesktop, handleSaveConfirmationModalVisibility,handleGeneratePassVisibility, showSaveConfirmationModal, showGeneratePassModal }}>
       {children}
     </AuthContext.Provider>
   );

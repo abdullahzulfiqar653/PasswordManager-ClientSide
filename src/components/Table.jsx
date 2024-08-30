@@ -1,6 +1,9 @@
 import React from "react";
+import useGetPassword from "../hooks/useGetPassword";
 
 const PasswordTable = () => {
+ const {data,isLoading}=useGetPassword();
+
   return (
     <table className="w-full text-sm text-left">
       <thead className="text-xs text-gray-700 uppercase bg-[#010E59]">
@@ -50,7 +53,7 @@ const PasswordTable = () => {
         </tr>
       </thead>
       <tbody>
-        {[1, 2, 3, 4, 5].map((_, index) => (
+        {data?.map((item, index) => (
           <tr
             key={index}
             className="bg-transparent border-[1.5px] border-[#002256] hover:bg-[#4207AF]"
@@ -71,16 +74,16 @@ const PasswordTable = () => {
               scope="row"
               className="border-[1.5px] border-[#002256] dm-sans text-[15px] font-[400]  px-6 py-[20px] text-[#DFDFDF] whitespace-nowrap"
             >
-              ☘️ Netflix
+             {item?.emoji ? String.fromCodePoint(parseInt(item.emoji, 16)) : ""} {item.title}
             </th>
             <td className="border-[1.5px] border-[#002256] dm-sans text-[15px] font-[400]  px-6 py-[20px] text-[#DFDFDF]">
-              Aqsa Nawaz
+           { item.username}
             </td>
             <td className="border-[1.5px] border-[#002256] dm-sans text-[15px] font-[400]  px-6 py-[20px] text-[#DFDFDF]">
-              https://netflix.com
+              {item.url}
             </td>
             <td className="border-[1.5px] border-[#002256] dm-sans text-[15px] font-[400]  px-6 py-[20px] text-[#DFDFDF]">
-              Personal use account ...
+              {item.notes}
             </td>
             <td className="border-[1.5px] border-[#002256] dm-sans text-[15px] font-[400]  px-6 py-[20px] text-[#DFDFDF]">
               20/06/24 3:15pm
