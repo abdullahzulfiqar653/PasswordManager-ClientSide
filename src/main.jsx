@@ -7,7 +7,9 @@ import './index.css'
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
+      <div className='h-[100vh]'>
       <App />
+      </div>
     </AuthProvider>
   </StrictMode>
 );
