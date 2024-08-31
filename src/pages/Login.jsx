@@ -1,6 +1,7 @@
 import { Link, useNavigate, Navigate } from "react-router-dom";
 import { useState } from "react";
 import Words from "../data/Seeds";
+import { toast } from "react-toastify";
 import { useAuth } from "../AuthContext";
 import useCreateToken from "../hooks/useCreateToken";
 
@@ -17,10 +18,17 @@ function Login() {
     mutate(seedsValue.join(" "), {
       onSuccess: (res) => {
         login();
+        toast.success("Logged In Successfully.", {
+          className: "toast-message",
+        });
         navigate("/dashboard/folders");
       },
       onError: (error) => {
-        setError("Login failed. Please check your credentials.", error);
+        toast.error(error.response.data.detail, { className: "toast-message" });
+        setError(
+          "Login failed. Please check your credentials.",
+          error.response.data
+        );
       },
     });
   };

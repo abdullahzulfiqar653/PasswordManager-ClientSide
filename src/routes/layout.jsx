@@ -3,6 +3,8 @@ import { useLocation, Outlet } from "react-router-dom";
 import { useAuth } from "../AuthContext";
 import Navbar from "../components/Navbar";
 import AuthNavbar from "../components/AuthNavbar";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 import ConfirmationModal from "../components/ConfirmationModal";
 import GeneratePassword from "../components/GeneratePassword";
 
@@ -20,6 +22,7 @@ const Layout = () => {
   const showNavbar = !noNavbarRoutes.includes(location.pathname);
   return (
     <React.Fragment>
+      <ToastContainer />
       {showNavbar && (isAuthenticated ? <AuthNavbar /> : <Navbar />)}
       <main>
         <Outlet />

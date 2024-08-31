@@ -183,3 +183,8 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
   background: #2497E3;
 }
+.toast-message {
+  background: #A143FF;
+  color: #fff;
+  font-size: 20px;
+}
