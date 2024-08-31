@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const PasswordDetailContent = ({ password }) => {
   return (
@@ -9,7 +9,7 @@ const PasswordDetailContent = ({ password }) => {
         </span>
         <div className="flex flex-1 gap-[10px] sm:gap-[0] sm:justify-between sm:items-center flex-col sm:flex-row">
           <span className="flex-1 font-[400] dm-sans text-[14px]">
-            {password?.name}
+            {password?.username}
           </span>
           <div className="flex gap-[21px] justify-end">
             <span className="cursor-pointer">
@@ -54,7 +54,7 @@ const PasswordDetailContent = ({ password }) => {
           Notes
         </span>
         <p className="font-[400] dm-sans text-[12px] text-[#DFDFDFBF]">
-          {password?.note}
+          {password?.notes}
         </p>
       </div>
     </div>

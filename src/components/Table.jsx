@@ -1,8 +1,6 @@
 import React from "react";
-import useGetPassword from "../hooks/useGetPassword";
 
-const PasswordTable = () => {
- const {data,isLoading}=useGetPassword();
+const PasswordTable = ({ data }) => {
 
   return (
     <table className="w-full text-sm text-left">
@@ -74,10 +72,13 @@ const PasswordTable = () => {
               scope="row"
               className="border-[1.5px] border-[#002256] dm-sans text-[15px] font-[400]  px-6 py-[20px] text-[#DFDFDF] whitespace-nowrap"
             >
-             {item?.emoji ? String.fromCodePoint(parseInt(item.emoji, 16)) : ""} {item.title}
+              {item?.emoji
+                ? String.fromCodePoint(parseInt(item.emoji, 16))
+                : ""}{" "}
+              {item.title}
             </th>
             <td className="border-[1.5px] border-[#002256] dm-sans text-[15px] font-[400]  px-6 py-[20px] text-[#DFDFDF]">
-           { item.username}
+              {item.username}
             </td>
             <td className="border-[1.5px] border-[#002256] dm-sans text-[15px] font-[400]  px-6 py-[20px] text-[#DFDFDF]">
               {item.url}

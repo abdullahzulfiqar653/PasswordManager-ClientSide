@@ -1,37 +1,22 @@
-import React, { useState } from "react";
-import { useAuth } from "../../AuthContext";
 import { Link } from "react-router-dom";
-import SearchesTags from "../../components/SearchesTags";
+import { useEffect, useState } from "react";
+
+import { useAuth } from "../../AuthContext";
 import PasswordTable from "../../components/Table";
 import RootFolder from "../../components/RootFolder";
+import SearchesTags from "../../components/SearchesTags";
 import PasswordDetailContent from "../../components/PasswordDetail";
+
+import useGetUserPasswords from "../../hooks/useGetUserPasswords";
 
 const PasswordFolder = () => {
   const { isDesktop } = useAuth();
-  const [passwords, setPasswords] = useState([
-    {
-      title: "☘️  Netflix",
-      name: "Aqsa",
-      url: "https://netflix.com",
-      modified: "20/06/24  3:15pm",
-      note: "Personal use account ,  have access to a wealth of resources, support, and collaboration opportunities.  have access to a wealth of resources, support, and collaboration opportunities.",
-    },
-    {
-      title: "🔥  Whatsapp",
-      name: "Aqsa",
-      url: "https://netflix.com",
-      modified: "20/06/24  3:15pm",
-      note: "Personal use account ,  have access to a wealth of resources, support, and collaboration opportunities.  have access to a wealth of resources, support, and collaboration opportunities.",
-    },
-    {
-      title: "☠️  Netflix",
-      name: "Aqsa",
-      url: "https://netflix.com",
-      modified: "20/06/24  3:15pm",
-      note: "Personal use account ,  have access to a wealth of resources, support, and collaboration opportunities.  have access to a wealth of resources, support, and collaboration opportunities.",
-    },
-  ]);
   const [activeTab, setActiveTab] = useState(0);
+  const { data, isLoading, refetch } = useGetUserPasswords();
+
+  useEffect(() => {
+    refetch();
+  }, [refetch]);
 
   const handleTabClick = (index) => {
     setActiveTab(index);
@@ -40,7 +25,7 @@ const PasswordFolder = () => {
     <section className="w-full rounded-[12px] flex flex-col gap-[11px]">
       <section className="bg-[#101E71] rounded-[12px] min-h-[624px]">
         <div className="relative overflow-x-auto  sm:rounded-lg">
-          <PasswordTable />
+          <PasswordTable data={data} />
         </div>
       </section>
       <RootFolder />
@@ -58,7 +43,7 @@ const PasswordFolder = () => {
         Passwords
       </h3>
       <div className="flex flex-col gap-[11px]">
-        {passwords.map((password, index) => (
+        {data?.map((password, index) => (
           <div
             key={index}
             className="flex flex-col gap-[2px] rounded-[6px] bg-[#0E1A60]"
