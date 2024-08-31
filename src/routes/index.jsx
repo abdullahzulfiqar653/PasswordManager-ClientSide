@@ -1,25 +1,22 @@
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+
 import Layout from "./layout";
-import ProtectedRoute from "./ProtectedRoute";
-import PublicRoute from "./PublicRoute";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
+import PublicRoute from "./PublicRoute";
 import Register from "../pages/Register";
 import NotFound from "../pages/NotFound";
+import { useAuth } from "../AuthContext";
 import Dashboard from "../pages/dashboard";
-import PasswordFolder from "../pages/dashboard/PasswordFolder";
+import ProtectedRoute from "./ProtectedRoute";
 import AddPassword from "../pages/dashboard/AddPassword";
 import FoldersList from "../pages/dashboard/FoldersList";
-import { useAuth } from "../AuthContext";
-import useVerifyToken from "../hooks/useVerifyToken";
+import PasswordFolder from "../pages/dashboard/PasswordFolder";
 
 const AppRoutes = () => {
-  const { isDesktop,login } = useAuth();
-  const {mutate}=useVerifyToken(login);
- useEffect(()=>{
-    mutate(localStorage.getItem("access_token"))
- },[])
+  const { isDesktop } = useAuth();
+
   return (
     <Routes>
       <Route element={<Layout />}>
