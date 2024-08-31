@@ -4,7 +4,6 @@ import { Routes, Route } from "react-router-dom";
 import Layout from "./layout";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
-import PublicRoute from "./PublicRoute";
 import Register from "../pages/Register";
 import NotFound from "../pages/NotFound";
 import { useAuth } from "../AuthContext";
@@ -21,14 +20,8 @@ const AppRoutes = () => {
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
-        <Route
-          path="/auth/login"
-          element={<PublicRoute element={<Login />} />}
-        />
-        <Route
-          path="/auth/register"
-          element={<PublicRoute element={<Register />} />}
-        />
+        <Route path="/auth/login" element={<Login />} />
+        <Route path="/auth/register" element={<Register />} />
         <Route
           path="/dashboard/add"
           element={<ProtectedRoute element={<AddPassword />} />}
