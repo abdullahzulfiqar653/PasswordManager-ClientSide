@@ -3,8 +3,8 @@ import { useLocation, Outlet } from "react-router-dom";
 import { useAuth } from "../AuthContext";
 import Navbar from "../components/Navbar";
 import AuthNavbar from "../components/AuthNavbar";
-import ConfirmationModal from '../components/ConfirmationModal'
-import GeneratePassword from '../components/GeneratePassword'
+import ConfirmationModal from "../components/ConfirmationModal";
+import GeneratePassword from "../components/GeneratePassword";
 
 const Layout = () => {
   const {
@@ -13,6 +13,7 @@ const Layout = () => {
     handleGeneratePassVisibility,
     showSaveConfirmationModal,
     showGeneratePassModal,
+    setGeneratorPassword,
   } = useAuth();
   const location = useLocation();
   const noNavbarRoutes = ["/auth/login", "/auth/register"];
@@ -27,7 +28,10 @@ const Layout = () => {
         <ConfirmationModal hideModal={handleSaveConfirmationModalVisibility} />
       )}
       {showGeneratePassModal && (
-        <GeneratePassword hideModal={handleGeneratePassVisibility} />
+        <GeneratePassword
+          hideModal={handleGeneratePassVisibility}
+          setGeneratorPassword={setGeneratorPassword}
+        />
       )}
     </React.Fragment>
   );

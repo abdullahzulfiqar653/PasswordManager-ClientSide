@@ -1,45 +1,67 @@
 import React, { useEffect, useState } from "react";
 import useGenerateRandomPassword from "../hooks/useGenerateRandomPassword";
-function GeneratePassword({ hideModal, handleSave }) {
+
+function GeneratePassword({
+  hideModal,
+  setGeneratorPassword,
+  is_navbar = true,
+}) {
+  const [copytext, setCopyText] = useState(false);
+  const { mutate, data } = useGenerateRandomPassword();
   const [isPasswordShow, setIsPasswordShow] = useState(false);
+
   const passwordVisibilityHandler = () =>
     setIsPasswordShow((preValue) => !preValue);
 
   const [passwordCriteria, setPasswordCriteria] = useState({
     length: 10,
-    is_alphabets: false,
+    is_alphabets: true,
     is_lowercase: false,
     is_uppercase: false,
     is_numeric: false,
     is_special: false,
   });
-  const { mutate, data } = useGenerateRandomPassword();
 
-  const handleChange = (e) => {
+  const handleClick = (e) => {
     const { name, value } = e.target;
-
-    setPasswordCriteria((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-    console.log(passwordCriteria);
+    setPasswordCriteria({
+      ...passwordCriteria,
+      [name]: value ? value : !passwordCriteria[name],
+    });
   };
+
+  const getPasswordQuality = () => {
+    let quality = "";
+    const length = passwordCriteria["length"];
+    if (length === 10) {
+      quality = "Fair";
+    } else if (length >= 13 && length < 20) {
+      quality = "Good";
+    } else if (length >= 20 && length < 25) {
+      quality = "Very strong";
+    } else if (length >= 25 && length <= 31) {
+      quality = "Excellent";
+    } else {
+      quality = "Unknown";
+    }
+
+    return quality;
+  };
+
   const handleSubmit = () => {
     mutate(passwordCriteria);
   };
 
-  const [copytext, setCopyText] = useState(false);
   useEffect(() => {
-    if (copytext) {
-      navigator.clipboard.writeText(data?.password);
-    }
-    setTimeout(() => {
-      setCopyText(false);
-    }, [700]);
-  }, [copytext, data]);
+    mutate(passwordCriteria);
+  }, [passwordCriteria]);
 
   const copyToClipBoard = () => {
     setCopyText(true);
+    navigator.clipboard.writeText(data?.password);
+    setTimeout(() => {
+      setCopyText(false);
+    }, [700]);
   };
 
   return (
@@ -84,12 +106,13 @@ function GeneratePassword({ hideModal, handleSave }) {
         </span>
         <section className="mt-[40px] sm:mt-[7px] w-full flex flex-col gap-[3px]">
           <span className="text-white font-[400] text-[10px] sm:text-[16px] dm-sans">
-            Password Quality: Excellent
+            Password Quality: {getPasswordQuality()}
           </span>
           <section className="w-full flex flex-wrap justify-between items-center gap-[4px] sm:gap-[11px]">
             <div className="relative password-input flex-1">
               <input
                 value={data?.password}
+                disabled
                 type={isPasswordShow ? "text" : "password"}
                 className="relative w-full dm-sans rounded-[10px] outline-none bg-[#0E1A60] py-[10px] sm:py-[12px] px-[7px] sm:px-[17px] placeholder:text-[#DFDFDF36] text-white text-[9px] sm:text-[16px] font-[400]"
               />
@@ -99,26 +122,40 @@ function GeneratePassword({ hideModal, handleSave }) {
               >
                 {isPasswordShow ? <OpenEye /> : <CloseEye />}
               </span>
+              <div
+                className="absolute bottom-0 left-0 h-[4px] rounded-b-[10px]"
+                style={{
+                  width: `${(passwordCriteria["length"] / 31) * 100}%`, // Dynamically set width based on the percentage
+                  background:
+                    "linear-gradient(90deg, #5003db 0%, #a143ff 100%)",
+                }}
+              />
             </div>
             <section className="flex gap-[4px] sm:gap-[10px] items-center">
-              <button
-                onClick={handleSubmit}
-                className="w-[25px] h-[32px] sm:w-[62px] sm:h-[55px] flex items-center justify-center rounded-[10px] bg-[#0E1A60] border-none outline-none"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-[8px] h-[9px] sm:w-[26px] sm:h-[26px]"
+              {(passwordCriteria.is_alphabets ||
+                passwordCriteria.is_lowercase ||
+                passwordCriteria.is_numeric ||
+                passwordCriteria.is_special ||
+                passwordCriteria.is_uppercase) && (
+                <button
+                  onClick={handleSubmit}
+                  className="w-[25px] h-[32px] sm:w-[62px] sm:h-[55px] flex items-center justify-center rounded-[10px] bg-[#0E1A60] border-none outline-none"
                 >
-                  <path
-                    d="M17.0607 2.9375C16.135 2.00606 15.0339 1.26695 13.821 0.762789C12.6081 0.258627 11.3074 -0.000617944 9.99375 1.10606e-06C4.46529 1.10606e-06 0 4.475 0 10C0 15.525 4.46529 20 9.99375 20C14.6592 20 18.5491 16.8125 19.6623 12.5H17.0607C16.5454 13.9619 15.5889 15.228 14.3231 16.1235C13.0573 17.0191 11.5446 17.5001 9.99375 17.5C5.85366 17.5 2.48906 14.1375 2.48906 10C2.48906 5.8625 5.85366 2.5 9.99375 2.5C12.07 2.5 13.9212 3.3625 15.272 4.725L11.2445 8.75H20V1.10606e-06L17.0607 2.9375Z"
-                    fill="white"
-                  />
-                </svg>
-              </button>
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-[8px] h-[9px] sm:w-[26px] sm:h-[26px]"
+                  >
+                    <path
+                      d="M17.0607 2.9375C16.135 2.00606 15.0339 1.26695 13.821 0.762789C12.6081 0.258627 11.3074 -0.000617944 9.99375 1.10606e-06C4.46529 1.10606e-06 0 4.475 0 10C0 15.525 4.46529 20 9.99375 20C14.6592 20 18.5491 16.8125 19.6623 12.5H17.0607C16.5454 13.9619 15.5889 15.228 14.3231 16.1235C13.0573 17.0191 11.5446 17.5001 9.99375 17.5C5.85366 17.5 2.48906 14.1375 2.48906 10C2.48906 5.8625 5.85366 2.5 9.99375 2.5C12.07 2.5 13.9212 3.3625 15.272 4.725L11.2445 8.75H20V1.10606e-06L17.0607 2.9375Z"
+                      fill="white"
+                    />
+                  </svg>
+                </button>
+              )}
               <button
                 onClick={copyToClipBoard}
                 className="w-[25px] h-[32px] sm:w-[62px] sm:h-[55px] flex items-center justify-center rounded-[10px] bg-[#0E1A60] border-none outline-none"
@@ -186,19 +223,13 @@ function GeneratePassword({ hideModal, handleSave }) {
                 <span className="relative w-full">
                   <input
                     name="length"
-                    onChange={(e) => {
-                      setPasswordCriteria((prev) => ({
-                        ...prev,
-                        length: e.target.value,
-                      }));
-                      handleSubmit();
-                    }}
+                    onChange={handleClick}
                     type="range"
                     className="custom-range"
                     min="10"
-                    max="100"
-                    step="1"
-                    defaultValue="16"
+                    max="31"
+                    step="3"
+                    value={passwordCriteria["length"]}
                   />
                   {/* <svg
                     width="576"
@@ -357,7 +388,18 @@ function GeneratePassword({ hideModal, handleSave }) {
                 {passwordCriteria.length}
               </span>
               <div className="flex flex-col gap-[5px]">
-                <span className="cursor-pointer">
+                <span
+                  className="cursor-pointer"
+                  onClick={() => {
+                    setPasswordCriteria({
+                      ...passwordCriteria,
+                      ["length"]:
+                        passwordCriteria["length"] < 31
+                          ? passwordCriteria["length"] + 3
+                          : 31,
+                    });
+                  }}
+                >
                   <svg
                     width="11"
                     height="8"
@@ -372,7 +414,18 @@ function GeneratePassword({ hideModal, handleSave }) {
                     />
                   </svg>
                 </span>
-                <span className="cursor-pointer">
+                <span
+                  className="cursor-pointer"
+                  onClick={() => {
+                    setPasswordCriteria({
+                      ...passwordCriteria,
+                      ["length"]:
+                        passwordCriteria["length"] > 10
+                          ? passwordCriteria["length"] - 3
+                          : 10,
+                    });
+                  }}
+                >
                   <svg
                     width="11"
                     height="8"
@@ -399,14 +452,7 @@ function GeneratePassword({ hideModal, handleSave }) {
             <section className="flex flex-1 gap-[5px] sm:gap-[14px] items-center flex-wrap justify-between">
               <button
                 name="is_uppercase"
-                value={passwordCriteria.is_uppercase}
-                onClick={() => {
-                  setPasswordCriteria((prev) => ({
-                    ...prev,
-                    is_uppercase: !prev.is_uppercase,
-                  }));
-                  handleSubmit();
-                }}
+                onClick={handleClick}
                 className="dm-sans  bg-[#0E1A60] flex-1 h-[30px] sm:h-[50px] rounded-[6.23px] sm:rounded-[15px] outline-none 
               border-none flex items-center justify-center text-[11px] sm:text-[17px] 
                font-[400] text-white hover:bg-[#091246]"
@@ -415,14 +461,7 @@ function GeneratePassword({ hideModal, handleSave }) {
               </button>
               <button
                 name="is_lowercase"
-                value={passwordCriteria.is_lowercase}
-                onClick={() => {
-                  setPasswordCriteria((prev) => ({
-                    ...prev,
-                    is_lowercase: !prev.is_lowercase,
-                  }));
-                  handleSubmit();
-                }}
+                onClick={handleClick}
                 className="dm-sans  bg-[#0E1A60] flex-1 h-[30px] sm:h-[50px] rounded-[6.23px] sm:rounded-[15px] outline-none 
               border-none flex items-center justify-center text-[11px] sm:text-[17px] 
                font-[400] text-white hover:bg-[#091246]"
@@ -431,14 +470,7 @@ function GeneratePassword({ hideModal, handleSave }) {
               </button>
               <button
                 name="is_numeric"
-                value={passwordCriteria.is_numeric}
-                onClick={() => {
-                  setPasswordCriteria((prev) => ({
-                    ...prev,
-                    is_numeric: !prev.is_numeric,
-                  }));
-                  handleSubmit();
-                }}
+                onClick={handleClick}
                 className="dm-sans  bg-[#0E1A60] flex-1 h-[30px] sm:h-[50px] rounded-[6.23px] sm:rounded-[15px] outline-none 
               border-none flex items-center justify-center text-[11px] sm:text-[17px] 
                font-[400] text-white hover:bg-[#091246]"
@@ -447,14 +479,7 @@ function GeneratePassword({ hideModal, handleSave }) {
               </button>
               <button
                 name="is_special"
-                value={passwordCriteria.is_special}
-                onClick={() => {
-                  setPasswordCriteria((prev) => ({
-                    ...prev,
-                    is_special: !prev.is_special,
-                  }));
-                  handleSubmit();
-                }}
+                onClick={handleClick}
                 className="dm-sans  bg-[#0E1A60] flex-1 h-[30px] sm:h-[50px] rounded-[6.23px] sm:rounded-[15px] outline-none 
               border-none flex items-center justify-center text-[11px] sm:text-[17px] 
                font-[400] text-white hover:bg-[#091246]"
@@ -464,15 +489,7 @@ function GeneratePassword({ hideModal, handleSave }) {
             </section>
             <button
               name="is_alphabets"
-              value={passwordCriteria.is_alphabets}
-              onClick={() => {
-                setPasswordCriteria((prev) => ({
-                  ...prev,
-                  is_alphabets: !prev.is_alphabets,
-                }));
-                handleSubmit();
-              }}
-              onChange={handleChange}
+              onClick={handleClick}
               className="dm-sans  bg-[linear-gradient(90deg,_#A143FF_0%,_#5003DB_100%)] w-[78px] h-[29px] sm:w-[167px] sm:h-[43px] rounded-[6.23px] sm:rounded-[15px] outline-none 
               border-none flex items-center justify-center text-[8px] sm:text-[15px] 
               font-[400] text-white hover:bg-[linear-gradient(90deg,_#922ef6_0%,_#4804c2_100%)]"
@@ -494,7 +511,8 @@ function GeneratePassword({ hideModal, handleSave }) {
             className="dm-sans  bg-[linear-gradient(90deg,_#A143FF_0%,_#5003DB_100%)] w-[85px] h-[30px] sm:w-[140px] sm:h-[50px] rounded-[6.23px] sm:rounded-[15px] outline-none 
               border-none flex items-center justify-center text-[9px] sm:text-[15px]
                font-[400] text-white"
-            onClick={handleSave}
+            disabled={!data?.password}
+            onClick={() => setGeneratorPassword(data?.password)}
           >
             Apply Password
           </button>

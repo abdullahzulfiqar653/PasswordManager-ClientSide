@@ -20,6 +20,7 @@ export const AuthProvider = ({ children }) => {
     useState(false);
   const [showGeneratePassModal, setShowGeneratePassModal] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [generatorPassword, setGeneratorPassword] = useState("");
 
   useEffect(() => {
     if (isTokenValid()) {
@@ -56,15 +57,17 @@ export const AuthProvider = ({ children }) => {
   return (
     <AuthContext.Provider
       value={{
-        isAuthenticated,
         login,
         signup,
         logout,
         isDesktop,
-        handleSaveConfirmationModalVisibility,
-        handleGeneratePassVisibility,
-        showSaveConfirmationModal,
+        isAuthenticated,
+        generatorPassword,
+        setGeneratorPassword,
         showGeneratePassModal,
+        showSaveConfirmationModal,
+        handleGeneratePassVisibility,
+        handleSaveConfirmationModalVisibility,
       }}
     >
       {children}
