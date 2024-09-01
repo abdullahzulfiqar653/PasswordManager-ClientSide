@@ -453,36 +453,60 @@ function GeneratePassword({
               <button
                 name="is_uppercase"
                 onClick={handleClick}
-                className="dm-sans  bg-[#0E1A60] flex-1 h-[30px] sm:h-[50px] rounded-[6.23px] sm:rounded-[15px] outline-none 
+                className={`dm-sans flex-1 h-[30px] sm:h-[50px] rounded-[6.23px] sm:rounded-[15px] outline-none 
               border-none flex items-center justify-center text-[11px] sm:text-[17px] 
-               font-[400] text-white hover:bg-[#091246]"
+               font-[400] text-white hover:bg-[#091246]
+               ${
+                 passwordCriteria.is_uppercase
+                   ? "bg-[linear-gradient(90deg,_#A143FF_0%,_#5003DB_100%)]"
+                   : "bg-[#0E1A60]"
+               }
+               `}
               >
                 A - Z
               </button>
               <button
                 name="is_lowercase"
                 onClick={handleClick}
-                className="dm-sans  bg-[#0E1A60] flex-1 h-[30px] sm:h-[50px] rounded-[6.23px] sm:rounded-[15px] outline-none 
-              border-none flex items-center justify-center text-[11px] sm:text-[17px] 
-               font-[400] text-white hover:bg-[#091246]"
+                className={`dm-sans flex-1 h-[30px] sm:h-[50px] rounded-[6.23px] sm:rounded-[15px] outline-none 
+                  border-none flex items-center justify-center text-[11px] sm:text-[17px] 
+                   font-[400] text-white hover:bg-[#091246]
+                   ${
+                     passwordCriteria.is_lowercase
+                       ? "bg-[linear-gradient(90deg,_#A143FF_0%,_#5003DB_100%)]"
+                       : "bg-[#0E1A60]"
+                   }
+                   `}
               >
                 a - z
               </button>
               <button
                 name="is_numeric"
                 onClick={handleClick}
-                className="dm-sans  bg-[#0E1A60] flex-1 h-[30px] sm:h-[50px] rounded-[6.23px] sm:rounded-[15px] outline-none 
-              border-none flex items-center justify-center text-[11px] sm:text-[17px] 
-               font-[400] text-white hover:bg-[#091246]"
+                className={`dm-sans flex-1 h-[30px] sm:h-[50px] rounded-[6.23px] sm:rounded-[15px] outline-none 
+                  border-none flex items-center justify-center text-[11px] sm:text-[17px] 
+                   font-[400] text-white hover:bg-[#091246]
+                   ${
+                     passwordCriteria.is_numeric
+                       ? "bg-[linear-gradient(90deg,_#A143FF_0%,_#5003DB_100%)]"
+                       : "bg-[#0E1A60]"
+                   }
+                   `}
               >
                 0 - 9
               </button>
               <button
                 name="is_special"
                 onClick={handleClick}
-                className="dm-sans  bg-[#0E1A60] flex-1 h-[30px] sm:h-[50px] rounded-[6.23px] sm:rounded-[15px] outline-none 
-              border-none flex items-center justify-center text-[11px] sm:text-[17px] 
-               font-[400] text-white hover:bg-[#091246]"
+                className={`dm-sans flex-1 h-[30px] sm:h-[50px] rounded-[6.23px] sm:rounded-[15px] outline-none 
+                  border-none flex items-center justify-center text-[11px] sm:text-[17px] 
+                   font-[400] text-white hover:bg-[#091246]
+                   ${
+                     passwordCriteria.is_special
+                       ? "bg-[linear-gradient(90deg,_#A143FF_0%,_#5003DB_100%)]"
+                       : "bg-[#0E1A60]"
+                   }
+                   `}
               >
                 \*_&
               </button>
@@ -490,9 +514,14 @@ function GeneratePassword({
             <button
               name="is_alphabets"
               onClick={handleClick}
-              className="dm-sans  bg-[linear-gradient(90deg,_#A143FF_0%,_#5003DB_100%)] w-[78px] h-[29px] sm:w-[167px] sm:h-[43px] rounded-[6.23px] sm:rounded-[15px] outline-none 
+              className={`dm-sans w-[78px] h-[29px] sm:w-[167px] sm:h-[43px] rounded-[6.23px] sm:rounded-[15px] outline-none 
               border-none flex items-center justify-center text-[8px] sm:text-[15px] 
-              font-[400] text-white hover:bg-[linear-gradient(90deg,_#922ef6_0%,_#4804c2_100%)]"
+              font-[400] text-white hover:bg-[#091246]
+                ${
+                     passwordCriteria.is_alphabets
+                       ? "bg-[linear-gradient(90deg,_#A143FF_0%,_#5003DB_100%)]"
+                       : "bg-[#0E1A60]"
+                   }`}
             >
               Extended ASCII
             </button>
