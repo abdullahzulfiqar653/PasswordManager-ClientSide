@@ -8,7 +8,7 @@ function Register() {
   const [isAgree, setIsAgree] = useState(false);
   const agreementHandler = () => setIsAgree(true);
 
-  const { data, error, isLoading } = useGetSeeds();
+  const { data } = useGetSeeds();
   const [seedsData, setSeedsData] = useState(null);
   const handlePassData = () => {
     setSeedsData(data);

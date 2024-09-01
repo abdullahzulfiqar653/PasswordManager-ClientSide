@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import useGenerateRandomPassword from "../hooks/useGenerateRandomPassword";
+import { toast } from "react-toastify";
 
-function GeneratePassword({
-  hideModal,
-  setGeneratorPassword,
-  is_navbar = true,
-}) {
+function GeneratePassword({ hideModal, setGeneratorPassword }) {
   const [copytext, setCopyText] = useState(false);
   const { mutate, data } = useGenerateRandomPassword();
   const [isPasswordShow, setIsPasswordShow] = useState(false);
@@ -512,7 +509,12 @@ function GeneratePassword({
               border-none flex items-center justify-center text-[9px] sm:text-[15px]
                font-[400] text-white"
             disabled={!data?.password}
-            onClick={() => setGeneratorPassword(data?.password)}
+            onClick={() => {
+              setGeneratorPassword(data?.password);
+              toast.success("Password applied on add password form successfully.", {
+                className: "toast-message",
+              });
+            }}
           >
             Apply Password
           </button>
