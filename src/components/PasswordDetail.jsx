@@ -1,6 +1,19 @@
-import React from "react";
+import moment from "moment";
+import React, { useState } from "react";
 
-const PasswordDetailContent = ({ password }) => {
+const PasswordDetailContent = ({ passWordRecord, handleRowClick }) => {
+  const [copytext, setCopyText] = useState(false);
+
+  const copyToClipBoard = (field) => {
+    setCopyText(true);
+    navigator.clipboard.writeText(
+      field == "username" ? passWordRecord.username : passWordRecord.url
+    );
+    setTimeout(() => {
+      setCopyText(false);
+    }, [700]);
+  };
+
   return (
     <div className="text-white flex flex-col gap-[17px] bg-[#010E59] pb-[14px] pt-[28px] px-[14px] text-[14px] dm-sans font-[400] leading-[20px]">
       <div className="flex md:items-center xs:flex-row flex-wrap">
@@ -9,13 +22,21 @@ const PasswordDetailContent = ({ password }) => {
         </span>
         <div className="flex flex-1 gap-[10px] sm:gap-[0] sm:justify-between sm:items-center flex-col sm:flex-row">
           <span className="flex-1 font-[400] dm-sans text-[14px]">
-            {password?.username}
+            {passWordRecord?.username}
           </span>
           <div className="flex gap-[21px] justify-end">
-            <span className="cursor-pointer">
+            <span
+              className="cursor-pointer"
+              onClick={() => copyToClipBoard("username")}
+            >
               <Copy />
             </span>
-            <span className="cursor-pointer">
+            <span
+              className="cursor-pointer"
+              onClick={() => {
+                handleRowClick(passWordRecord);
+              }}
+            >
               <Edit />
             </span>
           </div>
@@ -27,13 +48,21 @@ const PasswordDetailContent = ({ password }) => {
         </span>
         <div className="flex flex-1 gap-[10px] sm:gap-[0] sm:justify-between sm:items-center flex-col sm:flex-row">
           <span className="flex-1 font-[400] dm-sans text-[14px]">
-            {password?.url}
+            {passWordRecord?.url}
           </span>
           <div className="flex gap-[21px] justify-end">
-            <span className="cursor-pointer">
+            <span
+              className="cursor-pointer"
+              onClick={() => copyToClipBoard("url")}
+            >
               <Copy />
             </span>
-            <span className="cursor-pointer">
+            <span
+              className="cursor-pointer"
+              onClick={() => {
+                handleRowClick(passWordRecord);
+              }}
+            >
               <Edit />
             </span>
           </div>
@@ -45,7 +74,9 @@ const PasswordDetailContent = ({ password }) => {
         </span>
         <div className="flex flex-1 gap-[10px] sm:gap-[0] sm:justify-between sm:items-center flex-col sm:flex-row">
           <span className="flex-1 font-[400] dm-sans text-[14px]">
-            {password?.modified}
+            {moment(passWordRecord?.updated_at).format(
+              "MMM Do YYYY, h:mm:ss a"
+            )}
           </span>
         </div>
       </div>
@@ -54,7 +85,7 @@ const PasswordDetailContent = ({ password }) => {
           Notes
         </span>
         <p className="font-[400] dm-sans text-[12px] text-[#DFDFDFBF]">
-          {password?.notes}
+          {passWordRecord?.notes}
         </p>
       </div>
     </div>

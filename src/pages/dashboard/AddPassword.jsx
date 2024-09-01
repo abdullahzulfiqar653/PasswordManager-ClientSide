@@ -1,33 +1,20 @@
 import { useEffect, useState } from "react";
 import EmojiPicker from "emoji-picker-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import { toast } from "react-toastify";
 import { useAuth } from "../../AuthContext";
 import useAddPassword from "../../hooks/useAddPassword";
+import useUpdatePassword from "../../hooks/useUpdatePassword";
 
-function AddPassword() {
+function AddPassword({ initialData = {} }) {
   const [isPasswordShow, setIsPasswordShow] = useState(false);
-  const passwordVisibilityHandler = () =>
-    setIsPasswordShow((preValue) => !preValue);
-  const { handleGeneratePassVisibility, generatorPassword } = useAuth();
   const [showPicker, setShowPicker] = useState(false);
   const [inputStr, setInputStr] = useState("");
   const [errors, setErrors] = useState({});
-  const navigate = useNavigate();
-
-  const onEmojiClick = (emojiObject) => {
-    setInputStr((prevInput) => prevInput + emojiObject.emoji);
-    setShowPicker(false);
-    const emojiCodePoint = emojiObject.emoji.codePointAt(0).toString(16);
-    const unicodeEmoji = `${emojiCodePoint}`;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      emoji: unicodeEmoji,
-    }));
-  };
-
-  const { mutate } = useAddPassword();
+  const location = useLocation();
+  const { state } = location;
+  const isUpdating = Boolean(state?.item);
   const [formData, setFormData] = useState({
     title: "",
     username: "",
@@ -35,7 +22,21 @@ function AddPassword() {
     url: "",
     notes: "",
     emoji: "",
+    ...state?.item,
   });
+  const navigate = useNavigate();
+  const { handleGeneratePassVisibility, generatorPassword } = useAuth();
+
+  const { mutate: addPassword } = useAddPassword();
+  const { mutate: updatePassword } = useUpdatePassword();
+
+  useEffect(() => {
+    if (generatorPassword)
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        password: generatorPassword,
+      }));
+  }, [generatorPassword]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -47,25 +48,43 @@ function AddPassword() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    mutate(formData, {
-      onSuccess: (res) => {
+    const mutationFn = isUpdating ? updatePassword : addPassword;
+    mutationFn(formData, {
+      onSuccess: () => {
         navigate("/dashboard/folders");
+        toast.success(
+          `Password ${isUpdating ? "updated" : "added"} successfully.`,
+          {
+            className: "toast-message",
+          }
+        );
       },
       onError: (error) => {
         setErrors(error.response.data);
-        toast.error("Please fix the errors in mentioned fields.", {
-          className: "toast-message",
-        });
+        toast.error(
+          error.response.data?.error
+            ? error.response.data?.error[0]
+            : "Please fix the errors in mentioned fields.",
+          {
+            className: "toast-message",
+          }
+        );
       },
     });
   };
 
-  useEffect(() => {
+  const passwordVisibilityHandler = () => setIsPasswordShow((prev) => !prev);
+
+  const onEmojiClick = (emojiObject) => {
+    setInputStr((prevInput) => prevInput + emojiObject.emoji);
+    setShowPicker(false);
+    const emojiCodePoint = emojiObject.emoji.codePointAt(0).toString(16);
+    const unicodeEmoji = `${emojiCodePoint}`;
     setFormData((prevFormData) => ({
       ...prevFormData,
-      password: generatorPassword,
+      emoji: unicodeEmoji,
     }));
-  }, [generatorPassword]);
+  };
 
   return (
     <section className="w-full relative flex mt-[42px] pb-[56px] container gap-[7px]">

@@ -40,12 +40,12 @@ function Navbar() {
               >
                 <Add />
               </Link>
-              <Link
+              {/* <Link
                 onClick={handleSaveConfirmationModalVisibility}
                 className="w-[28px] h-[28px] sm:w-[61px] sm:h-[61px] flex items-center justify-center bg-[#101E71] border-[.3px] border-[#374CC4] rounded-full"
               >
                 <Save />
-              </Link>
+              </Link> */}
               <Link
                 to="/dashboard/folders"
                 className="w-[28px] h-[28px] sm:w-[61px] sm:h-[61px] flex items-center justify-center bg-[#101E71] border-[.3px] border-[#374CC4] rounded-full"

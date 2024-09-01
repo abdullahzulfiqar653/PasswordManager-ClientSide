@@ -26,6 +26,10 @@ const AppRoutes = () => {
           path="/dashboard/add"
           element={<ProtectedRoute element={<AddPassword />} />}
         />
+        <Route
+          path="/dashboard/edit/:id"
+          element={<ProtectedRoute element={<AddPassword />} />}
+        />
         {isDesktop ? (
           <Route
             path="/dashboard/folders"
