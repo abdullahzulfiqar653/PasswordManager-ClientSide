@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import { useAuth } from "../AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import useCreateToken from "../hooks/useCreateToken";
 
-import { useAuth } from "../AuthContext";
 function RegisterInstruction({ seedsData }) {
   const { signup } = useAuth();
   const [copytext, setCopyText] = useState(false);

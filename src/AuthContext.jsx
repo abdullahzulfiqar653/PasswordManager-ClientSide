@@ -21,6 +21,7 @@ export const AuthProvider = ({ children }) => {
   const [showGeneratePassModal, setShowGeneratePassModal] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(true);
   const [generatorPassword, setGeneratorPassword] = useState("");
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     if (isTokenValid()) {
@@ -58,9 +59,11 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{
         login,
+        search,
         signup,
         logout,
         isDesktop,
+        setSearch,
         isAuthenticated,
         generatorPassword,
         setGeneratorPassword,

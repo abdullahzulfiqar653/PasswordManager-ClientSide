@@ -7,7 +7,7 @@ import { useAuth } from "../../AuthContext";
 import useAddPassword from "../../hooks/useAddPassword";
 import useUpdatePassword from "../../hooks/useUpdatePassword";
 
-function AddPassword({ initialData = {} }) {
+function AddPassword() {
   const [isPasswordShow, setIsPasswordShow] = useState(false);
   const [showPicker, setShowPicker] = useState(false);
   const [inputStr, setInputStr] = useState("");
