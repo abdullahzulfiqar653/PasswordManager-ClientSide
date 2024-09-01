@@ -82,7 +82,7 @@ function Login() {
 
   return (
     <section className="flex min-h-screen w-full justify-between flex-col-reverse lg:flex-row">
-      <section className="w-full lg:w-[45%] lg:px-[100px] pb-[54px] lg:pb-[182px] flex justify-center items-center">
+      <section className="w-full lg:w-[45%] h-[100vh] flex justify-center items-center">
         <div className="hidden lg:flex flex-col gap-[26px] mt-[95px]">
           <div className="flex flex-col gap-[29px] max-w-[450px]">
             <Link to="/" className="flex items-center gap-[15px]">
@@ -101,7 +101,7 @@ function Login() {
         </div>
         <img className="block lg:hidden" src="/loginlockv2.svg" />
       </section>
-      <section className="w-full flex-col items-center lg:w-[55%] bg-[#101E71] rounded-[0px_0px_60px_60px] lg:rounded-[166px_0px_0px_166px] px-[20px] lg:px-[85px] pb-[34px] lg:pb-[182px] flex justify-center">
+      <section className="w-full flex-col items-center lg:w-[55%] bg-[#101E71] rounded-[0px_0px_60px_60px] lg:rounded-[166px_0px_0px_166px] px-[20px]  flex justify-center">
         <nav className="lg:hidden flex justify-center items-center py-[14px] gradient-border">
           <Link to="/" className="flex items-center gap-[15px]">
             <img src="/logov2.svg" className="cursor-pointer" />
@@ -110,7 +110,7 @@ function Login() {
             </h2>
           </Link>
         </nav>
-        <div className="w-full mt-[37px] lg:mt-[95px] flex flex-col gap-[30px] lg:gap-[42px] max-w-[637px]">
+        <div className="w-full h-[100vh] justify-center flex flex-col gap-[30px] lg:gap-[42px] max-w-[637px]">
           <img
             className="w-[173px] lg:w-[255px] mx-auto"
             src="/loginmainlogo.svg"

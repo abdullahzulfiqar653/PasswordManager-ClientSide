@@ -711,9 +711,9 @@ function Home() {
           </section>
         </section> */}
 
-        <section className="container relative z-20 md:pt-[180px]">
-          <section className="flex flex-col md:flex-row justify-between min-h-[100vh] pt-[26px]">
-            <section className="flex flex-col gap-[10px] items-start">
+        <section className="container relative z-20 flex items-center">
+          <section className="flex flex-col md:flex-row justify-between lg:h-[100vh] pt-[26px] w-full relative">
+            <section className="flex flex-col gap-[10px] items-start absolute left-[0px] top-[150px]">
               <button
                 className="rounded-[12px] border-[0.8px] border-[#fff] 
             bg-[linear-gradient(180deg,rgba(255, 255, 255, 0.19)_0%,rgba(153, 153, 153, 0.19)_100%)]
@@ -769,7 +769,7 @@ function Home() {
                 bg-[linear-gradient(180deg,rgba(255, 255, 255, 0.19)_0%,rgba(153, 153, 153, 0.19)_100%)]
                 backdrop-blur-[11px] flex justify-center p-[10px] items-start
                 text-[#FDC60B] font-[400] text-[12px] dm-sans flex-col min-h-[180px] md:min-h-[260px]
-                md:gap-[36px] gap-[24px] px-[13px] md:px-[20px] max-w-[298px] md:max-w-[370px] relative"
+                md:gap-[36px] gap-[24px] px-[13px] md:px-[20px]  max-w-[298px] md:max-w-[370px] relative"
               >
                 <h2 className="text-white text-[22px] md:text-[32px] font-[400] leading-[26px] md:leading-[38px]">
                   Password Manager PC Protect your systems
@@ -1115,13 +1115,13 @@ function Home() {
                 </span>
               </div>
             </section>
-            <section className="flex flex-col gap-[27px] md:gap-[124px] pt-[140px]">
+            <section className="container relative flex  h-[100vh]">
               <div
                 className="rounded-[11px] md:rounded-[16px] border-[0.56px] border-[#fff] 
                 bg-[linear-gradient(180deg,rgba(255, 255, 255, 0.19)_0%,rgba(153, 153, 153, 0.19)_100%)]
                 backdrop-blur-[11px] flex justify-center p-[10px] items-start
                 text-[#FDC60B] font-[400] text-[12px] dm-sans flex-col min-h-[102px] md:min-h-[147px]
-                 px-[13px] md:px-[20px] max-w-[236px] md:max-w-[340px] relative"
+                 px-[13px] md:px-[20px] max-w-[236px] md:max-w-[340px] absolute right-[50px] top-[220px]"
               >
                 <h2 className="text-white text-[15px] md:text-[20px] font-[400] leading-[18px] md:leading-[26px] dm-sans">
                   Generate Unbreakable Passwords
@@ -1472,7 +1472,7 @@ function Home() {
                 bg-[linear-gradient(180deg,rgba(255, 255, 255, 0.19)_0%,rgba(153, 153, 153, 0.19)_100%)]
                 backdrop-blur-[11px] flex justify-center p-[10px] items-start
                 text-[#FDC60B] font-[400] text-[12px] dm-sans flex-col min-h-[102px] md:min-h-[147px]
-                 px-[13px] md:px-[20px] max-w-[236px] md:max-w-[340px] relative"
+                 px-[13px] md:px-[20px] max-w-[236px] md:max-w-[340px] absolute right-[10px] bottom-[230px]"
               >
                 <h2 className="text-white text-[15px] md:text-[20px] font-[400] leading-[18px] md:leading-[26px] dm-sans">
                   Generate Unbreakable Passwords
@@ -1821,7 +1821,7 @@ function Home() {
           </section>
         </section>
         <video
-          className="absolute min-h-[100vh] md:fixed top-0 w-full md:object-cover"
+          className="absolute top-[-100px] h-[100vh]  w-full md:object-cover"
           autoPlay
           muted
           loop={true}
