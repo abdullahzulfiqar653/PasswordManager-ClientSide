@@ -39,7 +39,7 @@ function Login() {
         const filteredSuggestions = Words.filter((word) =>
           word.toLowerCase().startsWith(inputValue.toLowerCase())
         );
-        setSeedsValue([...seedsValue, filteredSuggestions]);
+        setSeedsValue([...seedsValue, filteredSuggestions[0]]);
         setInputValue("");
         setSuggestions([]);
         break;

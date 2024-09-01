@@ -1,7 +1,6 @@
 import React from "react";
 
 const PasswordTable = ({ data }) => {
-
   return (
     <table className="w-full text-sm text-left">
       <thead className="text-xs text-gray-700 uppercase bg-[#010E59]">
@@ -51,7 +50,7 @@ const PasswordTable = ({ data }) => {
         </tr>
       </thead>
       <tbody>
-        {data?.map((item, index) => (
+        {data?.results.map((item, index) => (
           <tr
             key={index}
             className="bg-transparent border-[1.5px] border-[#002256] hover:bg-[#4207AF]"
