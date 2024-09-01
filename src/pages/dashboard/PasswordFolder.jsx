@@ -43,7 +43,7 @@ const PasswordFolder = () => {
         Passwords
       </h3>
       <div className="flex flex-col gap-[11px]">
-        {data?.map((password, index) => (
+        {data?.results.map((password, index) => (
           <div
             key={index}
             className="flex flex-col gap-[2px] rounded-[6px] bg-[#0E1A60]"

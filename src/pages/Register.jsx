@@ -8,7 +8,7 @@ function Register() {
   const [isAgree, setIsAgree] = useState(false);
   const agreementHandler = () => setIsAgree(true);
 
-  const { data, error, isLoading } = useGetSeeds();
+  const { data } = useGetSeeds();
   const [seedsData, setSeedsData] = useState(null);
   const handlePassData = () => {
     setSeedsData(data);
@@ -35,8 +35,8 @@ function Register() {
         </div>
         <img className="block lg:hidden" src="/loginlockv2.svg" />
       </section>
-      <section className="w-full flex-col items-center lg:w-[55%] bg-[#101E71] rounded-[0px_0px_60px_60px] lg:rounded-[166px_0px_0px_166px] px-[20px] lg:px-[85px] pb-[34px] lg:pb-[182px] flex justify-center">
-        <div className="w-full mt-[37px] lg:mt-[95px] flex flex-col gap-[30px] lg:gap-[42px] max-w-[637px]">
+      <section className="w-full h-[100vh] flex-col items-center lg:w-[55%] bg-[#101E71] rounded-[0px_0px_60px_60px] lg:rounded-[166px_0px_0px_166px] px-[20px]  flex justify-center">
+        <div className="w-full  flex flex-col gap-[30px] lg:gap-[42px] max-w-[637px]">
           {!isAgree ? (
             <RegisterInstruction
               agreementHandler={agreementHandler}

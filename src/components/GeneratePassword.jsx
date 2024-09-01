@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import useGenerateRandomPassword from "../hooks/useGenerateRandomPassword";
+import { toast } from "react-toastify";
 
-function GeneratePassword({
-  hideModal,
-  setGeneratorPassword,
-  is_navbar = true,
-}) {
+function GeneratePassword({ hideModal, setGeneratorPassword }) {
   const [copytext, setCopyText] = useState(false);
   const { mutate, data } = useGenerateRandomPassword();
   const [isPasswordShow, setIsPasswordShow] = useState(false);
@@ -231,155 +228,6 @@ function GeneratePassword({
                     step="3"
                     value={passwordCriteria["length"]}
                   />
-                  {/* <svg
-                    width="576"
-                    height="6"
-                    viewBox="0 0 576 6"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-full h-full"
-                  >
-                    <rect width="576" height="6" rx="3" fill="#0E1A60" />
-                  </svg>
-                  <span className="absolute top-[-6px] sm:top-[-12px] left-[8px]">
-                    <svg
-                      width="15"
-                      height="21"
-                      viewBox="0 0 15 21"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-[6.23px] h-[12.56px] sm:w-[15px] sm:h-[21px]"
-                    >
-                      <path
-                        d="M0.293243 1.23162C0.14363 0.603244 0.620108 0 1.26605 0H13.763C14.3997 0 14.8742 0.587017 14.7408 1.20953L10.6694 20.2095C10.5706 20.6706 10.1631 21 9.69158 21H5.78986C5.3268 21 4.92431 20.6821 4.81705 20.2316L0.293243 1.23162Z"
-                        fill="url(#paint0_linear_329_28093)"
-                      />
-                      <defs>
-                        <linearGradient
-                          id="paint0_linear_329_28093"
-                          x1="7.5"
-                          y1="0"
-                          x2="7.5"
-                          y2="21"
-                          gradientUnits="userSpaceOnUse"
-                        >
-                          <stop stopColor="#A143FF" />
-                          <stop offset="1" stopColor="#5003DB" />
-                        </linearGradient>
-                      </defs>
-                    </svg>
-                  </span>
-                </span>
-                <span className="">
-                  <svg
-                    width="572"
-                    height="14"
-                    viewBox="0 0 572 14"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-full h-full"
-                  >
-                    <path
-                      d="M1 1V12.638"
-                      stroke="#194D9E"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M31 1V12.638"
-                      stroke="#194D9E"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M61 1V12.638"
-                      stroke="#194D9E"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M91 1V12.638"
-                      stroke="#194D9E"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M121 1V12.638"
-                      stroke="#194D9E"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M151 1V12.638"
-                      stroke="#194D9E"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M181 1V12.638"
-                      stroke="#194D9E"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M211 1V12.638"
-                      stroke="#194D9E"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M241 1V12.638"
-                      stroke="#194D9E"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M271 1V12.638"
-                      stroke="#194D9E"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M301 1V12.638"
-                      stroke="#194D9E"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M331 1V12.638"
-                      stroke="#194D9E"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M361 1V12.638"
-                      stroke="#194D9E"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M391 1V12.638"
-                      stroke="#194D9E"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M421 1V12.638"
-                      stroke="#194D9E"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M451 1V12.638"
-                      stroke="#194D9E"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M481 1V12.638"
-                      stroke="#194D9E"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M511 1V12.638"
-                      stroke="#194D9E"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M541 1V12.638"
-                      stroke="#194D9E"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M571 1V12.638"
-                      stroke="#194D9E"
-                      strokeLinecap="round"
-                    />
-                  </svg> */}
                 </span>
               </section>
             </section>
@@ -541,7 +389,13 @@ function GeneratePassword({
               border-none flex items-center justify-center text-[9px] sm:text-[15px]
                font-[400] text-white"
             disabled={!data?.password}
-            onClick={() => setGeneratorPassword(data?.password)}
+            onClick={() => {
+              setGeneratorPassword(data?.password);
+              toast.success(
+                "Password applied successfully in the password form.",
+                { className: "toast-message" }
+              );
+            }}
           >
             Apply Password
           </button>
