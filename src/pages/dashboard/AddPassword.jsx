@@ -31,7 +31,7 @@ function AddPassword() {
   const { mutate: updatePassword } = useUpdatePassword();
 
   useEffect(() => {
-    if (generatorPassword)
+    if (generatorPassword && isUpdating)
       setFormData((prevFormData) => ({
         ...prevFormData,
         password: generatorPassword,
@@ -79,10 +79,9 @@ function AddPassword() {
     setInputStr((prevInput) => prevInput + emojiObject.emoji);
     setShowPicker(false);
     const emojiCodePoint = emojiObject.emoji.codePointAt(0).toString(16);
-    const unicodeEmoji = `${emojiCodePoint}`;
     setFormData((prevFormData) => ({
       ...prevFormData,
-      emoji: unicodeEmoji,
+      emoji: emojiCodePoint,
     }));
   };
 
@@ -187,7 +186,7 @@ function AddPassword() {
               <input
                 name="emoji"
                 type="text"
-                value={inputStr}
+                value={inputStr || formData.emoji ? String.fromCodePoint(parseInt(formData.emoji, 16)) : ''}
                 className="w-full dm-sans border-[1px] rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]"
               />
               <svg
