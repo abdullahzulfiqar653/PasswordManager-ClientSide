@@ -25,13 +25,17 @@ function AddPassword() {
     ...state?.item,
   });
   const navigate = useNavigate();
-  const { handleGeneratePassVisibility, generatorPassword } = useAuth();
+  const {
+    handleGeneratePassVisibility,
+    generatorPassword,
+    setGeneratorPassword,
+  } = useAuth();
 
   const { mutate: addPassword } = useAddPassword();
   const { mutate: updatePassword } = useUpdatePassword();
 
   useEffect(() => {
-    if (generatorPassword && isUpdating)
+    if (generatorPassword)
       setFormData((prevFormData) => ({
         ...prevFormData,
         password: generatorPassword,
@@ -51,6 +55,7 @@ function AddPassword() {
     const mutationFn = isUpdating ? updatePassword : addPassword;
     mutationFn(formData, {
       onSuccess: () => {
+        setGeneratorPassword("");
         navigate("/dashboard/folders");
         toast.success(
           `Password ${isUpdating ? "updated" : "added"} successfully.`,
@@ -146,7 +151,7 @@ function AddPassword() {
                 {isPasswordShow ? <OpenEye /> : <CloseEye />}
               </span>
               <span
-                onClick={handleGeneratePassVisibility}
+                onClick={() => handleGeneratePassVisibility("form")}
                 className="cursor-pointer absolute top-[50%] right-[50px] translate-y-[-50%]"
               >
                 <Shield />
@@ -186,7 +191,11 @@ function AddPassword() {
               <input
                 name="emoji"
                 type="text"
-                value={inputStr || formData.emoji ? String.fromCodePoint(parseInt(formData.emoji, 16)) : ''}
+                value={
+                  inputStr || formData.emoji
+                    ? String.fromCodePoint(parseInt(formData.emoji, 16))
+                    : ""
+                }
                 className="w-full dm-sans border-[1px] rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]"
               />
               <svg
@@ -229,7 +238,10 @@ function AddPassword() {
         </div>
         <div className="flex gap-[12px] justify-center md:justify-end mt-[25px]">
           <button
-            onClick={() => navigate(-1)}
+            onClick={() => {
+              setGeneratorPassword("");
+              navigate(-1);
+            }}
             className="py-[17px] w-[140px] rounded-[18.37px] bg-[#101E71] border-none outline-none text-white text-[15.5px] font-[400] dm-sans"
           >
             Cancel

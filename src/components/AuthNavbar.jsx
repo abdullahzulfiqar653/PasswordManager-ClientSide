@@ -34,7 +34,7 @@ function Navbar() {
             </div>
             <div className="flex justify-end  gap-[19px]">
               <Link
-                onClick={handleGeneratePassVisibility}
+                onClick={() => handleGeneratePassVisibility('navbar')}
                 className="w-[28px] h-[28px] sm:w-[61px] sm:h-[61px] flex items-center justify-center bg-[#101E71] border-[.3px] border-[#374CC4] rounded-full"
               >
                 <Shield />

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import useGenerateRandomPassword from "../hooks/useGenerateRandomPassword";
 import { toast } from "react-toastify";
 
-function GeneratePassword({ hideModal, setGeneratorPassword }) {
+function GeneratePassword({ hideModal, setGeneratorPassword,triggerSource }) {
   const [copytext, setCopyText] = useState(false);
   const { mutate, data } = useGenerateRandomPassword();
   const [isPasswordShow, setIsPasswordShow] = useState(false);
@@ -384,7 +384,7 @@ function GeneratePassword({ hideModal, setGeneratorPassword }) {
           >
             Close
           </button>
-          <button
+         {triggerSource === 'form' && <button
             className="dm-sans  bg-[linear-gradient(90deg,_#A143FF_0%,_#5003DB_100%)] w-[85px] h-[30px] sm:w-[140px] sm:h-[50px] rounded-[6.23px] sm:rounded-[15px] outline-none 
               border-none flex items-center justify-center text-[9px] sm:text-[15px]
                font-[400] text-white"
@@ -398,7 +398,7 @@ function GeneratePassword({ hideModal, setGeneratorPassword }) {
             }}
           >
             Apply Password
-          </button>
+          </button>}
         </section>
       </section>
     </section>

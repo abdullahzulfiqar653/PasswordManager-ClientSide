@@ -16,6 +16,7 @@ const Layout = () => {
     showSaveConfirmationModal,
     showGeneratePassModal,
     setGeneratorPassword,
+    applyPasswordButton,
   } = useAuth();
   const location = useLocation();
   const noNavbarRoutes = ["/auth/login", "/auth/register"];
@@ -34,6 +35,7 @@ const Layout = () => {
         <GeneratePassword
           hideModal={handleGeneratePassVisibility}
           setGeneratorPassword={setGeneratorPassword}
+          triggerSource={applyPasswordButton}
         />
       )}
     </React.Fragment>

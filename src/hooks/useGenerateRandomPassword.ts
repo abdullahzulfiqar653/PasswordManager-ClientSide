@@ -5,7 +5,6 @@ const useGenerateRandomPassword = () => useMutation({
     mutationFn:(detail) => {
         console.log(detail);
         const jsonDetail = JSON.stringify(detail);
-        console.log(jsonDetail);
       return apiClient
         .post('/passwords/generate-random/',jsonDetail, getTokenIncludedConfig())
         .then(res=> res.data)

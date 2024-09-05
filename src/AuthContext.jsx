@@ -19,10 +19,11 @@ export const AuthProvider = ({ children }) => {
   const [showSaveConfirmationModal, setShowSaveConfirmationModal] =
     useState(false);
   const [showGeneratePassModal, setShowGeneratePassModal] = useState(false);
+  const [applyPasswordButton, setApplyPasswordButton] = useState("")
   const [isAuthenticated, setIsAuthenticated] = useState(true);
   const [generatorPassword, setGeneratorPassword] = useState("");
   const [search, setSearch] = useState("");
-
+   
   useEffect(() => {
     if (isTokenValid()) {
       setIsAuthenticated(true);
@@ -51,8 +52,9 @@ export const AuthProvider = ({ children }) => {
     setShowSaveConfirmationModal((prev) => !prev);
   };
 
-  const handleGeneratePassVisibility = () => {
+  const handleGeneratePassVisibility = (source) => {
     setShowGeneratePassModal((prev) => !prev);
+    setApplyPasswordButton(source)
   };
 
   return (
@@ -68,6 +70,7 @@ export const AuthProvider = ({ children }) => {
         generatorPassword,
         setGeneratorPassword,
         showGeneratePassModal,
+        applyPasswordButton,
         showSaveConfirmationModal,
         handleGeneratePassVisibility,
         handleSaveConfirmationModalVisibility,
