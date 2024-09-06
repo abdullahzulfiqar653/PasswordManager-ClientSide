@@ -1,46 +1,38 @@
-import React, { useState } from "react";
-import { useAuth } from "../../AuthContext";
 import { Link } from "react-router-dom";
-import SearchesTags from "../../components/SearchesTags";
+import { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+
+import { useAuth } from "../../AuthContext";
 import PasswordTable from "../../components/Table";
 import RootFolder from "../../components/RootFolder";
+import SearchesTags from "../../components/SearchesTags";
 import PasswordDetailContent from "../../components/PasswordDetail";
 
+import useGetUserPasswords from "../../hooks/useGetUserPasswords";
+
 const PasswordFolder = () => {
+  const navigate = useNavigate();
   const { isDesktop } = useAuth();
-  const [passwords, setPasswords] = useState([
-    {
-      title: "☘️  Netflix",
-      name: "Aqsa",
-      url: "https://netflix.com",
-      modified: "20/06/24  3:15pm",
-      note: "Personal use account ,  have access to a wealth of resources, support, and collaboration opportunities.  have access to a wealth of resources, support, and collaboration opportunities.",
-    },
-    {
-      title: "🔥  Whatsapp",
-      name: "Aqsa",
-      url: "https://netflix.com",
-      modified: "20/06/24  3:15pm",
-      note: "Personal use account ,  have access to a wealth of resources, support, and collaboration opportunities.  have access to a wealth of resources, support, and collaboration opportunities.",
-    },
-    {
-      title: "☠️  Netflix",
-      name: "Aqsa",
-      url: "https://netflix.com",
-      modified: "20/06/24  3:15pm",
-      note: "Personal use account ,  have access to a wealth of resources, support, and collaboration opportunities.  have access to a wealth of resources, support, and collaboration opportunities.",
-    },
-  ]);
   const [activeTab, setActiveTab] = useState(0);
+  const { data, isLoading, refetch } = useGetUserPasswords();
+
+  useEffect(() => {
+    refetch();
+  }, [refetch]);
 
   const handleTabClick = (index) => {
     setActiveTab(index);
   };
+
+  const handleRowClick = (item) => {
+    navigate(`/dashboard/edit/${item.id}`, { state: { item } });
+  };
+
   return isDesktop ? (
     <section className="w-full rounded-[12px] flex flex-col gap-[11px]">
       <section className="bg-[#101E71] rounded-[12px] min-h-[624px]">
         <div className="relative overflow-x-auto  sm:rounded-lg">
-          <PasswordTable />
+          <PasswordTable data={data} handleRowClick={handleRowClick} />
         </div>
       </section>
       <RootFolder />
@@ -58,7 +50,7 @@ const PasswordFolder = () => {
         Passwords
       </h3>
       <div className="flex flex-col gap-[11px]">
-        {passwords.map((password, index) => (
+        {data?.results.map((passWordRecord, index) => (
           <div
             key={index}
             className="flex flex-col gap-[2px] rounded-[6px] bg-[#0E1A60]"
@@ -69,11 +61,14 @@ const PasswordFolder = () => {
                 index === activeTab ? "active" : ""
               } flex justify-between items-center text-white bg-[#010E59] py-[17px] px-[14px] text-[14px] dm-sans font-[400] leading-[20px]`}
             >
-              {password.title}
+              {passWordRecord.title}
               {index === activeTab ? <UpArrow /> : <DownArrow />}
             </button>
             {index == activeTab && (
-              <PasswordDetailContent password={password} />
+              <PasswordDetailContent
+                passWordRecord={passWordRecord}
+                handleRowClick={handleRowClick}
+              />
             )}
           </div>
         ))}

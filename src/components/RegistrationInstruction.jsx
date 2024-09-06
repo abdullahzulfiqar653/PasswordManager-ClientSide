@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function RegisterInstruction({agreementHandler}) {
+function RegisterInstruction({ agreementHandler, onSelectSeeds }) {
   return (
     <React.Fragment>
       <img
@@ -32,7 +32,10 @@ function RegisterInstruction({agreementHandler}) {
               lg:py-[19px] max-w-[312px] w-[100%] rounded-[11.61px] lg:rounded-[18.37px] outline-none 
               border-none text-[12px] lg:text-[15.5px] leading-[15.26px] 
               lg:leading-[20.18px] font-[400] text-white"
-              onClick={agreementHandler}
+            onClick={() => {
+              agreementHandler();
+              onSelectSeeds();
+            }}
           >
             I understand, show me my seed
           </button>

@@ -3,9 +3,12 @@ import { useAuth } from "../AuthContext";
 
 function Navbar() {
   const {
-    handleSaveConfirmationModalVisibility,
+    search,
+    setSearch,
     handleGeneratePassVisibility,
+    handleSaveConfirmationModalVisibility,
   } = useAuth();
+
   return (
     <header className="bg-transparent z-10 relative">
       <section className="container">
@@ -25,11 +28,13 @@ function Navbar() {
               <input
                 className="dm-sans w-full border-[1px] rounded-[12px] border-[#374CC4] outline-none bg-[#101E71] py-[11px] pl-[41px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]"
                 placeholder="Search..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
               />
             </div>
             <div className="flex justify-end  gap-[19px]">
               <Link
-                onClick={handleGeneratePassVisibility}
+                onClick={() => handleGeneratePassVisibility('navbar')}
                 className="w-[28px] h-[28px] sm:w-[61px] sm:h-[61px] flex items-center justify-center bg-[#101E71] border-[.3px] border-[#374CC4] rounded-full"
               >
                 <Shield />
@@ -40,12 +45,12 @@ function Navbar() {
               >
                 <Add />
               </Link>
-              <Link
+              {/* <Link
                 onClick={handleSaveConfirmationModalVisibility}
                 className="w-[28px] h-[28px] sm:w-[61px] sm:h-[61px] flex items-center justify-center bg-[#101E71] border-[.3px] border-[#374CC4] rounded-full"
               >
                 <Save />
-              </Link>
+              </Link> */}
               <Link
                 to="/dashboard/folders"
                 className="w-[28px] h-[28px] sm:w-[61px] sm:h-[61px] flex items-center justify-center bg-[#101E71] border-[.3px] border-[#374CC4] rounded-full"
