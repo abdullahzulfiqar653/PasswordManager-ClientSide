@@ -20,7 +20,7 @@ function AddPassword() {
     username: "",
     password: "",
     url: "",
-    notes: "",
+    notes: null,
     emoji: "",
     ...state?.item,
   });
@@ -48,6 +48,9 @@ function AddPassword() {
       ...formData,
       [name]: value,
     });
+    if (name === "notes" && !value) {
+      setFormData({ ...formData, [name]: null });
+    }
   };
 
   const handleSubmit = (e) => {
