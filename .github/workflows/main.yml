@@ -40,5 +40,5 @@ jobs:
             git pull && \
             export PATH=\$PATH:/root/.npm/bin && \
             npm run build && \
-            cp -r ./build/* /var/www/pm/html/ && \
+            cp -r ./dist/* /var/www/pm/html/ && \
             systemctl reload nginx"
