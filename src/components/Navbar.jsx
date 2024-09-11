@@ -9,7 +9,7 @@ function Navbar() {
         <nav className="flex justify-around md:justify-between md:items-center py-[11px] gradient-border">
           <Link to="/" className="flex items-center gap-[6px] md:gap-[15px]">
             <img src="/logo.svg" className="cursor-pointer w-10 md:w-full ml-4 md:ml-0" />
-            <h2 className="md:text-[22px] xs:font-medium xs:pb-2 text-[16px] text-white whitespace-nowrap">
+            <h2 className="md:text-[22px] xs:font-medium xs:pb-2 text-[16px] md:font-normal text-white whitespace-nowrap">
               Password Manager
             </h2>
           </Link>
