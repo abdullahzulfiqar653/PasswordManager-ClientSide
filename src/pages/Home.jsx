@@ -713,7 +713,7 @@ function Home() {
 
         <section className="container relative z-20 flex items-center">
           <section className="flex flex-col md:flex-row justify-between lg:h-[100vh] pt-[26px] w-full relative">
-            <section className="flex flex-col gap-[10px] items-start absolute left-[0px] top-[150px]">
+            {/* <section className="flex flex-col gap-[10px] items-start absolute left-[0px] top-[150px]">
               <button
                 className="rounded-[12px] border-[0.8px] border-[#fff] 
             bg-[linear-gradient(180deg,rgba(255, 255, 255, 0.19)_0%,rgba(153, 153, 153, 0.19)_100%)]
@@ -1114,8 +1114,8 @@ function Home() {
                   </svg>
                 </span>
               </div>
-            </section>
-            <section className="container relative flex  h-[100vh]">
+            </section> */}
+            {/* <section className="container relative flex  h-[100vh]">
               <div
                 className="rounded-[11px] md:rounded-[16px] border-[0.56px] border-[#fff] 
                 bg-[linear-gradient(180deg,rgba(255, 255, 255, 0.19)_0%,rgba(153, 153, 153, 0.19)_100%)]
@@ -1817,7 +1817,7 @@ function Home() {
                   </svg>
                 </span>
               </div>
-            </section>
+            </section> */}
           </section>
         </section>
         <video
@@ -1826,7 +1826,7 @@ function Home() {
           muted
           loop={true}
         >
-          <source src="/video.mp4" />
+          <source src="/4k.mp4" />
         </video>
       </section>
     </>
