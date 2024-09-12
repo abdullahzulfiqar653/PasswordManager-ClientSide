@@ -3,7 +3,7 @@ import React from "react";
 function Home() {
   return (
     <>
-      <section className="main-banner w-full relative">
+      <section className="main-banner w-full relative bg-[#071a64]">
         {/* <section className="hero-section relative w-full h-full mx-auto max-w-screen-2xl">
           <section className="container md:p-0 relative z-20 py-[26px] md:py-[180px]">
             <div className="flex justify-between w-full flex-col md:flex-row">
@@ -712,8 +712,8 @@ function Home() {
         </section> */}
 
         <section className="container relative z-20 flex items-center">
-          <section className="flex flex-col md:flex-row justify-between lg:h-[100vh] pt-[26px] w-full relative">
-            <section className="flex flex-col gap-[10px] items-start absolute left-[0px] top-[150px]">
+          <section className="flex flex-col md:flex-row justify-between lg:h-auto pt-[26px] w-full relative">
+            {/* <section className="flex flex-col gap-[10px] items-start absolute left-[0px] top-[150px]">
               <button
                 className="rounded-[12px] border-[0.8px] border-[#fff] 
             bg-[linear-gradient(180deg,rgba(255, 255, 255, 0.19)_0%,rgba(153, 153, 153, 0.19)_100%)]
@@ -1114,8 +1114,8 @@ function Home() {
                   </svg>
                 </span>
               </div>
-            </section>
-            <section className="container relative flex  h-[100vh]">
+            </section> */}
+            {/* <section className="container relative flex  h-[100vh]">
               <div
                 className="rounded-[11px] md:rounded-[16px] border-[0.56px] border-[#fff] 
                 bg-[linear-gradient(180deg,rgba(255, 255, 255, 0.19)_0%,rgba(153, 153, 153, 0.19)_100%)]
@@ -1817,16 +1817,24 @@ function Home() {
                   </svg>
                 </span>
               </div>
-            </section>
+            </section> */}
           </section>
         </section>
         <video
-          className="absolute top-[-100px] h-[100vh]  w-full md:object-cover"
+          className="absolute hidden md:block top-[-100px] h-[100vh] w-full md:object-cover"
           autoPlay
           muted
           loop={true}
         >
-          <source src="/video.mp4" />
+          <source src="/4k.mp4" />
+        </video>
+        <video
+          className="absolute h-auto w-full object-cover md:hidden"
+          autoPlay
+          muted
+          loop={true}
+        >
+          <source src="/mobileVideo.mp4" />
         </video>
       </section>
     </>
