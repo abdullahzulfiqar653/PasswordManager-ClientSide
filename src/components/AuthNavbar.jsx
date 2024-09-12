@@ -33,16 +33,16 @@ function Navbar() {
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
-            <div className="flex justify-end gap-[5px] md:gap-[19px] z-[2]">
+            <div className="flex justify-end gap-[6px] md:gap-[19px] z-[2]">
               <Link
                 onClick={() => handleGeneratePassVisibility('navbar')}
-                className="w-[32px] h-[32px] sm:w-[61px] sm:h-[61px] flex items-center justify-center bg-[#101E71] border-[.3px] border-[#374CC4] rounded-full"
+                className="w-[34px] h-[34px] sm:w-[61px] sm:h-[61px] flex items-center justify-center bg-[#101E71] border-[.3px] border-[#374CC4] rounded-full"
               >
                 <Shield />
               </Link>
               <Link
                 to="/dashboard/add"
-                className="w-[32px] h-[32px] sm:w-[61px] sm:h-[61px] flex items-center justify-center bg-[#101E71] border-[.3px] border-[#374CC4] rounded-full"
+                className="w-[34px] h-[34px] sm:w-[61px] sm:h-[61px] flex items-center justify-center bg-[#101E71] border-[.3px] border-[#374CC4] rounded-full"
               >
                 <Add />
               </Link>
@@ -54,7 +54,7 @@ function Navbar() {
               </Link> */}
               <Link
                 to="/dashboard/folders/123"
-                className="w-[32px] h-[32px] mr-3 sm:w-[61px] sm:h-[61px] flex items-center justify-center bg-[#101E71] border-[.3px] border-[#374CC4] rounded-full"
+                className="w-[34px] h-[34px] mr-3 sm:w-[61px] sm:h-[61px] flex items-center justify-center bg-[#101E71] border-[.3px] border-[#374CC4] rounded-full"
               >
                 <Folder />
               </Link>
