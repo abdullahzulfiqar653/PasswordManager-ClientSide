@@ -96,7 +96,7 @@ function AddPassword() {
   return (
     <section className="w-full relative flex mt-[20px] md:mt-[42px] pb-[56px] gap-[7px]">
       <img src="/dots.svg" className="absolute w-[100vh] h-[20vh] md:h-auto md:w-full top-[-100px] md:-[-130px] z-[1] object-cover"/>
-      <img src="/boxes.svg" className="absolute w-[100vh] md:w-[150vw] top-[-135px] h-[120vh] md:h-[75vw] z-[1] object-cover opacity-30"/>
+      <img src="/boxes.svg" className="absolute w-[100vh] md:w-[150vw] top-[-135px] h-[100vh] z-[1] object-cover opacity-30"/>
       <section className="w-full flex-1 flex flex-col md:gap-[20px] container z-[3]">
         <h4 className=" text-white  text-[22px]  md:text-[32px] leading-[64px] font-[400]">
           Root . Add Entry

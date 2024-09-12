@@ -12,7 +12,7 @@ function RegisterInstruction({ agreementHandler, onSelectSeeds }) {
       {/* <h3 className="text-white hidden md:block text-center text-[31px] lg:text-[46px] leading-[43px] lg:leading-[64px] font-[400]">
         Register Account
       </h3> */}
-      <form className="flex flex-col gap-[20px] md:gap-[92px]">
+      <form className="flex flex-col gap-[20px] md:gap-[52px]">
         <div className="flex flex-col gap-[4px]">
           <div className="flex flex-col gap-[9px]">
             <p className="dm-sans hidden md:block text-[#DFDFDF] text-[16px] leading-[27px] font-[400] text-center">
