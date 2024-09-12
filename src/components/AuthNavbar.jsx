@@ -14,11 +14,6 @@ function Navbar() {
       
       <section className="md:container">
         <nav className="relative flex justify-between items-center py-[16px] gradient-border gap-[26px]">
-        <img
-        src="/dots.svg"
-        className="absolute w-full top-3 z-[1]"
-        />
-        {/* <img src="/HomeSideShade.png" className="absolute top-[60px] right-[200px] w-[900px]" /> */}
           <Link to="/" className="flex items-center gap-[7px]  md:gap-[15px] z-[2]">
             <img
               src="/logov2.svg"
