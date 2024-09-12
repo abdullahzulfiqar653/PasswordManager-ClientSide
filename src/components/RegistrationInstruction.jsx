@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 function RegisterInstruction({ agreementHandler, onSelectSeeds }) {
   return (
     <React.Fragment>
+      <div className="flex flex-col">
       <img
-        className="w-[173px] hidden md:block lg:w-[255px] mx-auto"
+        className="md:w-[370px] lg:w-[420px] hidden md:mr-7 lg:mr-20 md:block mx-auto"
         src="/registrationlogo.svg"
       />
-      <h3 className="text-white hidden md:block text-center text-[31px] lg:text-[46px] leading-[43px] lg:leading-[64px] font-[400]">
+      {/* <h3 className="text-white hidden md:block text-center text-[31px] lg:text-[46px] leading-[43px] lg:leading-[64px] font-[400]">
         Register Account
-      </h3>
+      </h3> */}
       <form className="flex flex-col gap-[20px] md:gap-[92px]">
         <div className="flex flex-col gap-[4px]">
           <div className="flex flex-col gap-[9px]">
@@ -51,6 +52,7 @@ function RegisterInstruction({ agreementHandler, onSelectSeeds }) {
           </p>
         </div>
       </form>
+      </div>
     </React.Fragment>
   );
 }

@@ -50,15 +50,16 @@ function RegisterInstruction({ seedsData }) {
 
   return (
     <React.Fragment>
+      <div className="flex flex-col gap-5 md:gap-0">
       <img
-        className="w-[173px] hidden md:block lg:w-[255px] mx-auto"
+        className="md:w-[350px] lg:w-[420px] hidden md:mr-7 lg:mr-20 md:block mx-auto"
         src="/registrationlogov2.svg"
       />
-      <h3 className="text-white z-[3] mt-[180px] md:mt-0 text-center text-[31px] lg:text-[46px] leading-[43px] lg:leading-[64px] font-[400]">
+      <h3 className="text-white md:hidden z-[3] mt-[180px] md:mt-0 text-center text-[31px] lg:text-[46px] leading-[43px] lg:leading-[64px] font-[400]">
         Your Seed
       </h3>
       <div className="flex flex-col gap-[5px]">
-        <div className="border-[1px] py-[8px] z-[3] md:py-[21px] pb-[10px] px-[19px] h-[166px] md:h-auto border-[#28399F] outline-none bg-[#0E1A60]">
+        <div className="border-[1px] py-[8px] z-[3] md:py-[21px] pb-[10px] px-[19px] h-[168px] md:h-auto border-[#28399F] outline-none bg-[#0E1A60]">
           <div className="flex gap-[4px] md:gap-[8px] flex-wrap">
             {seedsData?.pass_phrase.split(" ").map((word, index) => (
               <span
@@ -158,7 +159,7 @@ function RegisterInstruction({ seedsData }) {
             </span>
           </div>
         </div>
-        <p className="dm-sans z-[3] text-[#A143FF] text-[12px] md:text-[16px] leading-[27px] font-[400]">
+        <p className="dm-sans z-[3] text-[#A143FF] md:mb-5 lg:mb-8 text-[12px] md:text-[16px] leading-[27px] font-[400]">
           Please write these down incase you lose your seed
         </p>
       </div>
@@ -179,7 +180,7 @@ function RegisterInstruction({ seedsData }) {
             Login here
           </Link>
         </p>
-      </div>
+      </div> </div>
     </React.Fragment>
   );
 }

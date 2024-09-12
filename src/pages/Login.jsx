@@ -84,7 +84,7 @@ function Login() {
     <section className="flex min-h-screen w-full justify-between flex-col-reverse md:flex-row">
       <section className="w-full md:w-[45%] h-[20vh] md:h-[100vh] flex justify-center items-center">
         <div className="hidden md:flex flex-col gap-[26px] mt-[95px]">
-          <div className="flex flex-col md:ml-2 lg:ml-0 gap-[29px] max-w-[450px]">
+          <div className="flex flex-col md:ml-5 gap-[29px] max-w-[450px]">
             <Link to="/" className="flex items-center gap-[15px]">
               <img src="/logo.svg" className="cursor-pointer" />
               <h2 className="text-[22px] text-white font-[400] leading-[64px]">
@@ -97,7 +97,7 @@ function Login() {
               and open source.
             </p>
           </div>
-          <img className="md:w-[300px] lg:w-[337px] md:ml-5 lg:ml-0" src="/loginlock.png" />
+          <img className="w-full lg:ml-0" src="/loginweb.svg" />
         </div>
         <img className="block md:hidden" src="/loginlockv2.svg" />
       </section>
@@ -114,15 +114,15 @@ function Login() {
             className="absolute w-[100%] md:hidden left-0 right-0 mx-auto"
             src="/loginForMobile.svg"
           />
-        <div className="w-full h-[65vh] md:h-[100vh] z-[1] justify-center flex flex-col gap-[30px] md:gap-[42px] max-w-[637px]">
+        <div className="w-full h-[65vh] md:h-[100vh] z-[1] justify-center flex flex-col max-w-[637px]">
           <img
-            className="w-[173px] hidden md:block md:w-[200px] lg:w-[255px] mx-auto z-[1]"
+            className=" hidden md:block w-[350px] lg:w-[420px] mr-20 mx-auto z-[1]"
             src="/loginmainlogo.svg"
           />
          
-          <h3 className="text-white hidden md:block text-center text-[31px] md:text-[46px] leading-[43px] md:leading-[64px] font-[400]">
+          {/* <h3 className="text-white hidden md:block text-center text-[31px] md:text-[46px] leading-[43px] md:leading-[64px] font-[400]">
             Log In
-          </h3>
+          </h3> */}
           <div className="flex flex-col mt-[130px] md:mt-0 gap-[4px]">
             <div className="flex items-center justify-between">
               <label className="dm-sans text-[#DFDFDF] text-[16px] leading-[32px] font-[400]">
