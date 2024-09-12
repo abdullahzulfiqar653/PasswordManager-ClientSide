@@ -94,14 +94,14 @@ function AddPassword() {
   };
 
   return (
-    <section className="w-full relative flex mt-[42px] pb-[56px] container gap-[7px]">
+    <section className="w-full relative flex mt-[20px] md:mt-[42px] pb-[56px] container gap-[7px]">
       <section className="w-full flex-1 flex flex-col md:gap-[20px]">
-        <h4 className=" text-white text-[32px] leading-[64px] font-[400]">
+        <h4 className=" text-white  text-[22px]  md:text-[32px] leading-[64px] font-[400]">
           Root . Add Entry
         </h4>
         {/* <form onSubmit={handleSubmit} onC className="flex flex-col gap-[25px]"> */}
-        <div className="flex flex-col gap-[15px] md:gap-[38px] flex-wrap md:flex-row">
-          <div className="flex-1 flex flex-col gap-[4px]">
+        <div className="flex flex-col md:gap-[38px] flex-wrap md:flex-row">
+          <div className="flex-1 flex flex-col md:gap-[4px]">
             <label className="dm-sans text-[#DFDFDF] text-[9.77px] sm:text-[16px] leading-[19.54px] sm:leading-[32px] font-[400]">
               Title
             </label>
@@ -109,7 +109,7 @@ function AddPassword() {
               name="title"
               value={formData.title}
               onChange={handleChange}
-              className="w-full dm-sans border-[1px] rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]"
+              className="w-full dm-sans border-[1px] mb-2 md:mb-0 h-[37.86px] md:h-auto rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]"
             />
             {errors.title && (
               <span className="text-red-500 text-[12px]">
@@ -117,7 +117,7 @@ function AddPassword() {
               </span>
             )}
           </div>
-          <div className="flex-1 flex flex-col gap-[4px]">
+          <div className="flex-1 flex flex-col md:gap-[4px]">
             <label className="dm-sans text-[#DFDFDF] text-[9.77px] sm:text-[16px] leading-[19.54px] sm:leading-[32px] font-[400]">
               Username
             </label>
@@ -125,7 +125,7 @@ function AddPassword() {
               name="username"
               value={formData.username}
               onChange={handleChange}
-              className="w-full dm-sans border-[1px] rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]"
+              className="w-full dm-sans border-[1px] mb-2 md:mb-0 h-[37.86px] md:h-auto rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]"
             />
             {errors.username && (
               <span className="text-red-500 text-[12px]">
@@ -134,8 +134,8 @@ function AddPassword() {
             )}
           </div>
         </div>
-        <div className="flex flex-col gap-[15px] md:gap-[38px] flex-wrap md:flex-row">
-          <div className="flex-1 flex flex-col gap-[4px]">
+        <div className="flex flex-col md:gap-[38px] flex-wrap md:flex-row">
+          <div className="flex-1 flex flex-col md:gap-[4px]">
             <label className="dm-sans text-[#DFDFDF] text-[9.77px] sm:text-[16px] leading-[19.54px] sm:leading-[32px] font-[400]">
               Password
             </label>
@@ -145,7 +145,7 @@ function AddPassword() {
                 value={formData.password}
                 onChange={handleChange}
                 type={isPasswordShow ? "text" : "password"}
-                className="w-full dm-sans border-[1px] rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]"
+                className="w-full dm-sans border-[1px] mb-2 md:mb-0 h-[37.86px] md:h-auto rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]"
               />
               <span
                 onClick={passwordVisibilityHandler}
@@ -155,7 +155,7 @@ function AddPassword() {
               </span>
               <span
                 onClick={() => handleGeneratePassVisibility("form")}
-                className="cursor-pointer absolute top-[50%] right-[50px] translate-y-[-50%]"
+                className="cursor-pointer absolute top-[50%] right-[38px] md:right-[50px] translate-y-[-50%]"
               >
                 <Shield />
               </span>
@@ -166,7 +166,7 @@ function AddPassword() {
               </span>
             )}
           </div>
-          <div className="flex-1 flex flex-col gap-[4px]">
+          <div className="flex-1 flex flex-col md:gap-[4px]">
             <label className="dm-sans text-[#DFDFDF] text-[9.77px] sm:text-[16px] leading-[19.54px] sm:leading-[32px] font-[400]">
               URL
             </label>
@@ -174,7 +174,7 @@ function AddPassword() {
               name="url"
               value={formData.url}
               onChange={handleChange}
-              className="w-full dm-sans border-[1px] rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]"
+              className="w-full dm-sans border-[1px] mb-2 md:mb-0 h-[37.86px] md:h-auto rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]"
               placeholder="https://examples.com"
             />
             {errors.url && (
@@ -182,8 +182,8 @@ function AddPassword() {
             )}
           </div>
         </div>
-        <div className="flex flex-col gap-[15px] md:gap-[38px] flex-wrap md:flex-row">
-          <div className="relative flex-1 flex flex-col gap-[4px]">
+        <div className="flex flex-col md:gap-[38px] flex-wrap md:flex-row">
+          <div className="relative flex-1 flex flex-col md:gap-[4px]">
             <label className="dm-sans text-[#DFDFDF] text-[9.77px] sm:text-[16px] leading-[19.54px] sm:leading-[32px] font-[400]">
               Select Emoji
             </label>
@@ -199,15 +199,15 @@ function AddPassword() {
                     ? String.fromCodePoint(parseInt(formData.emoji, 16))
                     : ""
                 }
-                className="w-full dm-sans border-[1px] rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]"
+                className="w-full dm-sans border-[1px] mb-2 md:mb-0 h-[37.86px] md:h-auto rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]"
               />
               <svg
-                width="18"
+               width="18"
                 height="10"
                 viewBox="0 0 18 10"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="absolute top-[50%] translate-y-[-50%] right-[20px]"
+                className="absolute top-[40%] md:top-[50%] w-[12px] md:w-[18px] translate-y-[-50%] right-[20px]"
               >
                 <path
                   d="M18 0.623409C18 0.465262 17.9396 0.30342 17.8223 0.182052C17.5877 -0.0606842 17.2039 -0.0606842 16.9693 0.182052L8.94047 8.49025L1.02893 0.30342C0.794353 0.0606833 0.410505 0.0606833 0.175932 0.30342C-0.0586414 0.546156 -0.0586414 0.943361 0.175932 1.1861L8.51397 9.81795C8.74854 10.0607 9.13239 10.0607 9.36697 9.81795L17.8223 1.06841C17.9431 0.943362 18 0.785233 18 0.623409Z"
@@ -217,14 +217,14 @@ function AddPassword() {
             </div>
             {showPicker && <EmojiPicker onEmojiClick={onEmojiClick} />}
           </div>
-          <div className="flex-1 flex flex-col gap-[4px]">
+          <div className="flex-1 flex flex-col md:gap-[4px]">
             <label className="dm-sans text-[#DFDFDF] text-[9.77px] sm:text-[16px] leading-[19.54px] sm:leading-[32px] font-[400]">
               Tags
             </label>
-            <input className="w-full dm-sans border-[1px] rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]" />
+            <input className="w-full dm-sans mb-2 md:mb-0 border-[1px] h-[37.86px] md:h-auto rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]" />
           </div>
         </div>
-        <div className="flex flex-col gap-[4px]">
+        <div className="flex flex-col md:gap-[4px]">
           <label className="dm-sans text-[#DFDFDF] text-[9.77px] sm:text-[16px] leading-[19.54px] sm:leading-[32px] font-[400]">
             Notes
           </label>
@@ -233,7 +233,7 @@ function AddPassword() {
             value={formData.notes}
             onChange={handleChange}
             rows={5}
-            className=" w-full dm-sans border-[1px] rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]"
+            className=" w-full dm-sans border-[1px] h-[118.26px] md:h-auto rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]"
           ></textarea>
           {errors.notes && (
             <span className="text-red-500 text-[12px]">{errors.notes[0]}</span>
@@ -251,7 +251,7 @@ function AddPassword() {
           </button>
           <button
             onClick={handleSubmit}
-            className="py-[17px] w-[140px] rounded-[18.37px] bg-[#101E71] border-none outline-none text-white text-[15.5px] font-[400] 
+            className="py-[17px] w-[140px] h-[57px] rounded-[18.37px] bg-[#101E71] border-none outline-none text-white text-[15.5px] font-[400] 
             dm-sans
             bg-[linear-gradient(90deg,_#A143FF_0%,_#5003DB_100%)]
 "
@@ -274,6 +274,7 @@ const CloseEye = () => (
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    className="w-[18px] h-[18px] sm:w-[24px] sm:h-[24px]"
   >
     <path
       d="M14.5299 9.47004L9.46992 14.53C8.81992 13.88 8.41992 12.99 8.41992 12C8.41992 10.02 10.0199 8.42004 11.9999 8.42004C12.9899 8.42004 13.8799 8.82004 14.5299 9.47004Z"
@@ -320,6 +321,7 @@ const OpenEye = () => (
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    className="w-[18px] h-[18px] sm:w-[24px] sm:h-[24px]"
   >
     <path
       d="M14.5299 9.47004L9.46992 14.53C8.81992 13.88 8.41992 12.99 8.41992 12C8.41992 10.02 10.0199 8.42004 11.9999 8.42004C12.9899 8.42004 13.8799 8.82004 14.5299 9.47004Z"
@@ -355,7 +357,7 @@ const Shield = () => (
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="w-[11px] h-[11px] sm:w-[24px] sm:h-[24px]"
+    className="w-[18px] h-[18px] sm:w-[24px] sm:h-[24px]"
   >
     <path
       d="M10.4902 2.23006L5.50016 4.11006C4.35016 4.54006 3.41016 5.90006 3.41016 7.12006V14.5501C3.41016 15.7301 4.19016 17.2801 5.14016 17.9901L9.44016 21.2001C10.8502 22.2601 13.1702 22.2601 14.5802 21.2001L18.8802 17.9901C19.8302 17.2801 20.6102 15.7301 20.6102 14.5501V7.12006C20.6102 5.89006 19.6702 4.53006 18.5202 4.10006L13.5302 2.23006C12.6802 1.92006 11.3202 1.92006 10.4902 2.23006Z"
