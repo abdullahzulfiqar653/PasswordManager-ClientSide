@@ -50,26 +50,27 @@ function RegisterInstruction({ seedsData }) {
 
   return (
     <React.Fragment>
+      <div className="flex flex-col gap-5 md:gap-0">
       <img
-        className="w-[173px] lg:w-[255px] mx-auto"
+        className="md:w-[350px] lg:w-[420px] hidden md:mr-7 lg:mr-20 md:block mx-auto"
         src="/registrationlogov2.svg"
       />
-      <h3 className="text-white text-center text-[31px] lg:text-[46px] leading-[43px] lg:leading-[64px] font-[400]">
-        Register Account
+      <h3 className="text-white md:hidden z-[3] mt-[180px] md:mt-0 text-center text-[31px] lg:text-[46px] leading-[43px] lg:leading-[64px] font-[400]">
+        Your Seed
       </h3>
       <div className="flex flex-col gap-[5px]">
-        <div className="border-[1px] py-[21px] pb-[10px] px-[19px] border-[#28399F] outline-none bg-[#0E1A60]">
-          <div className="flex gap-[8px] flex-wrap">
+        <div className="border-[1px] py-[8px] z-[3] md:py-[21px] pb-[10px] px-[19px] h-[168px] md:h-auto border-[#28399F] outline-none bg-[#0E1A60]">
+          <div className="flex gap-[4px] md:gap-[8px] flex-wrap">
             {seedsData?.pass_phrase.split(" ").map((word, index) => (
               <span
                 key={index}
-                className="dm-sans border-[#9F42FF] border-[1px] px-[8px] text-[16px] leading-[27px] font-[400] text-white rounded-[6px]"
+                className="dm-sans border-[#9F42FF] border-[1px] px-[8px] text-[12px] md:text-[16px] leading-[27px] font-[400] text-white rounded-[6px]"
               >
                 {word}
               </span>
             ))}
           </div>
-          <div className="flex justify-end gap-[26px] items-center mt-[20px]">
+          <div className="flex justify-end gap-[26px] items-center mt-0 md:mt-[20px]">
             <span
               onClick={savePdf}
               className="dm-sans cursor-pointer flex gap-[4.96px] text-[#FFFFFFA1] text-[16px] font-[400] leading-[27px]"
@@ -158,28 +159,28 @@ function RegisterInstruction({ seedsData }) {
             </span>
           </div>
         </div>
-        <p className="dm-sans text-[#A143FF] text-[16px] leading-[27px] font-[400]">
+        <p className="dm-sans z-[3] text-[#A143FF] md:mb-5 lg:mb-8 text-[12px] md:text-[16px] leading-[27px] font-[400]">
           Please write these down incase you lose your seed
         </p>
       </div>
-      <div className="flex flex-col gap-[14.64px] lg:gap-[32px]">
+      <div className="flex flex-col gap-[5px] lg:gap-[32px]">
         <button
           onClick={handleSubmit}
-          className="dm-sans mx-[auto] bg-[linear-gradient(90deg,_#A143FF_0%,_#5003DB_100%)] py-[10px] 
-              lg:py-[19px] max-w-[312px] w-[100%] rounded-[11.61px] lg:rounded-[18.37px] outline-none 
+          className="dm-sans z-[3] mx-[auto] bg-[linear-gradient(90deg,_#A143FF_0%,_#5003DB_100%)] py-[10px] 
+              lg:py-[19px] max-w-[244px] md:max-w-[312px] w-[100%] rounded-[11.61px] lg:rounded-[18.37px] outline-none 
               border-none text-[12px] lg:text-[15.5px] leading-[15.26px] 
               lg:leading-[20.18px] font-[400] text-white"
         >
           Next
         </button>
-        <p className="dm-sans text-center text-[#DFDFDF] text-[12px] lg:text-[16px] leading-[32px] font-[400]">
+        <p className="dm-sans text-center z-[3] text-[#DFDFDF] text-[12px] lg:text-[16px] leading-[32px] font-[400]">
           Already have account?
           <Link className="text-[#A143FF]" to="/auth/login">
             {" "}
             Login here
           </Link>
         </p>
-      </div>
+      </div> </div>
     </React.Fragment>
   );
 }

@@ -94,8 +94,10 @@ function AddPassword() {
   };
 
   return (
-    <section className="w-full relative flex mt-[20px] md:mt-[42px] pb-[56px] container gap-[7px]">
-      <section className="w-full flex-1 flex flex-col md:gap-[20px]">
+    <section className="w-full relative flex mt-[20px] md:mt-[42px] pb-[56px] gap-[7px]">
+      <img src="/dots.svg" className="absolute w-[100vh] h-[20vh] md:h-auto md:w-full top-[-100px] md:-[-130px] z-[1] object-cover"/>
+      <img src="/boxes.svg" className="absolute w-[100vh] md:w-[150vw] top-[-135px] h-[100vh] z-[1] object-cover opacity-30"/>
+      <section className="w-full flex-1 flex flex-col md:gap-[20px] container z-[3]">
         <h4 className=" text-white  text-[22px]  md:text-[32px] leading-[64px] font-[400]">
           Root . Add Entry
         </h4>
@@ -202,7 +204,7 @@ function AddPassword() {
                 className="w-full dm-sans border-[1px] mb-2 md:mb-0 h-[37.86px] md:h-auto rounded-[10px] border-[#374CC4] outline-none bg-[#101E71] py-[15px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]"
               />
               <svg
-               width="18"
+                width="18"
                 height="10"
                 viewBox="0 0 18 10"
                 fill="none"

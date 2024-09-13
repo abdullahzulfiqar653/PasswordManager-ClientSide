@@ -81,10 +81,10 @@ function Login() {
   if (isAuthenticated) return <Navigate to="/dashboard/folders" />;
 
   return (
-    <section className="flex min-h-screen w-full justify-between flex-col-reverse lg:flex-row">
-      <section className="w-full lg:w-[45%] h-[100vh] flex justify-center items-center">
-        <div className="hidden lg:flex flex-col gap-[26px] mt-[95px]">
-          <div className="flex flex-col gap-[29px] max-w-[450px]">
+    <section className="flex min-h-screen w-full justify-between flex-col-reverse md:flex-row">
+      <section className="w-full md:w-[45%] h-[20vh] md:h-[100vh] flex justify-center items-center">
+        <div className="hidden md:flex flex-col gap-[26px] mt-[95px]">
+          <div className="flex flex-col md:ml-5 gap-[29px] max-w-[450px]">
             <Link to="/" className="flex items-center gap-[15px]">
               <img src="/logo.svg" className="cursor-pointer" />
               <h2 className="text-[22px] text-white font-[400] leading-[64px]">
@@ -97,12 +97,12 @@ function Login() {
               and open source.
             </p>
           </div>
-          <img className="w-[337px]" src="/loginlock.png" />
+          <img className="w-full lg:ml-0" src="/loginweb.svg" />
         </div>
-        <img className="block lg:hidden" src="/loginlockv2.svg" />
+        <img className="block md:hidden" src="/loginlockv2.svg" />
       </section>
-      <section className="w-full flex-col items-center lg:w-[55%] bg-[#101E71] rounded-[0px_0px_60px_60px] lg:rounded-[166px_0px_0px_166px] px-[20px]  flex justify-center">
-        <nav className="lg:hidden flex justify-center items-center py-[14px] gradient-border">
+      <section className="relative w-full flex-col items-center md:w-[55%] bg-[#101E71] rounded-[0px_0px_60px_60px] md:rounded-[166px_0px_0px_166px] px-[20px]  flex justify-center">
+        <nav className="md:hidden flex justify-center items-center py-[14px] gradient-border z-[2]">
           <Link to="/" className="flex items-center gap-[15px]">
             <img src="/logov2.svg" className="cursor-pointer" />
             <h2 className="text-[12px] leading-[36px] font-[400] text-white">
@@ -110,15 +110,20 @@ function Login() {
             </h2>
           </Link>
         </nav>
-        <div className="w-full h-[100vh] justify-center flex flex-col gap-[30px] lg:gap-[42px] max-w-[637px]">
+        <img
+            className="absolute w-[100%] md:hidden left-0 right-0 mx-auto"
+            src="/loginForMobile.svg"
+          />
+        <div className="w-full h-[65vh] md:h-[100vh] z-[1] justify-center flex flex-col max-w-[637px]">
           <img
-            className="w-[173px] lg:w-[255px] mx-auto"
+            className=" hidden md:block w-[350px] lg:w-[420px] mr-20 mx-auto z-[1]"
             src="/loginmainlogo.svg"
           />
-          <h3 className="text-white text-center text-[31px] lg:text-[46px] leading-[43px] lg:leading-[64px] font-[400]">
+         
+          {/* <h3 className="text-white hidden md:block text-center text-[31px] md:text-[46px] leading-[43px] md:leading-[64px] font-[400]">
             Log In
-          </h3>
-          <div className="flex flex-col gap-[4px]">
+          </h3> */}
+          <div className="flex flex-col mt-[130px] md:mt-0 gap-[4px]">
             <div className="flex items-center justify-between">
               <label className="dm-sans text-[#DFDFDF] text-[16px] leading-[32px] font-[400]">
                 Key Seed
@@ -181,17 +186,17 @@ function Login() {
               ))}
             </div>
           </div>
-          <div className="flex flex-col gap-[14.64px] lg:gap-[32px]">
+          <div className="flex flex-col gap-[14.64px] md:gap-[32px]">
             <button
               onClick={handleSubmit}
               className="mx-[auto] bg-[linear-gradient(90deg,_#A143FF_0%,_#5003DB_100%)] py-[10px] 
-              lg:py-[19px] max-w-[312px] w-[100%] rounded-[11.61px] lg:rounded-[18.37px] outline-none 
-              border-none text-[12px] lg:text-[15.5px] leading-[15.26px] 
-              lg:leading-[20.18px] font-[400] text-[#FFFFFF66] dm-sans"
+              md:py-[19px] md:max-w-[312px] max-w-[244px]  w-[100%] rounded-[11.61px] md:rounded-[18.37px] outline-none 
+              border-none text-[12px] md:text-[15.5px] leading-[15.26px] 
+              md:leading-[20.18px] font-[400] text-[#FFFFFF66] dm-sans"
             >
               Next
             </button>
-            <p className="dm-sans text-center text-[#DFDFDF] text-[12px] lg:text-[16px] leading-[32px] font-[400]">
+            <p className="dm-sans text-center text-[#DFDFDF] text-[12px] md:text-[16px] leading-[32px] font-[400]">
               Don’t you have any account?{" "}
               <Link className="text-[#A143FF]" to="/auth/register">
                 {" "}
@@ -201,7 +206,7 @@ function Login() {
           </div>
         </div>
         <img
-          className="hidden lg:block absolute right-0 top-[-10px]"
+          className="hidden md:block absolute right-0 top-[-10px]"
           src="/loginpattern.svg"
         />
       </section>

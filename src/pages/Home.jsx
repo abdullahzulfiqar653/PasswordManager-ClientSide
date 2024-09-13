@@ -3,7 +3,7 @@ import React from "react";
 function Home() {
   return (
     <>
-      <section className="main-banner w-full relative bg-[#071a64]">
+      <section className="main-banner w-full relative bg-[#131c67]">
         {/* <section className="hero-section relative w-full h-full mx-auto max-w-screen-2xl">
           <section className="container md:p-0 relative z-20 py-[26px] md:py-[180px]">
             <div className="flex justify-between w-full flex-col md:flex-row">

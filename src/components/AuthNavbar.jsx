@@ -11,9 +11,10 @@ function Navbar() {
 
   return (
     <header className="bg-transparent z-10 relative">
+      
       <section className="md:container">
-        <nav className="flex justify-between items-center py-[16px] gradient-border gap-[26px]">
-          <Link to="/" className="flex items-center gap-[7px]  md:gap-[15px]">
+        <nav className="relative flex justify-between items-center py-[16px] gradient-border gap-[26px]">
+          <Link to="/" className="flex items-center gap-[7px]  md:gap-[15px] z-[2]">
             <img
               src="/logov2.svg"
               className="w-full sm:w-[70px] cursor-pointer ml-4 md:ml-0"
@@ -22,8 +23,8 @@ function Navbar() {
               Password Manager
             </h2>
           </Link>
-          <div className="flex-1 items-center gap-[18px] flex justify-end">
-            <div className="relative flex-1 hidden lg:block">
+          <div className="flex-1 items-center gap-[18px] flex justify-end z-[2]">
+            <div className="relative flex-1 hidden md:block">
               <Search />
               <input
                 className="dm-sans w-full border-[1px] rounded-[12px] border-[#374CC4] outline-none bg-[#101E71] py-[11px] pl-[41px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]"
@@ -32,16 +33,16 @@ function Navbar() {
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
-            <div className="flex justify-end gap-[5px] md:gap-[19px]">
+            <div className="flex justify-end gap-[6px] md:gap-[19px] z-[2]">
               <Link
                 onClick={() => handleGeneratePassVisibility('navbar')}
-                className="w-[32px] h-[32px] sm:w-[61px] sm:h-[61px] flex items-center justify-center bg-[#101E71] border-[.3px] border-[#374CC4] rounded-full"
+                className="w-[34px] h-[34px] sm:w-[61px] sm:h-[61px] flex items-center justify-center bg-[#101E71] border-[.3px] border-[#374CC4] rounded-full"
               >
                 <Shield />
               </Link>
               <Link
                 to="/dashboard/add"
-                className="w-[32px] h-[32px] sm:w-[61px] sm:h-[61px] flex items-center justify-center bg-[#101E71] border-[.3px] border-[#374CC4] rounded-full"
+                className="w-[34px] h-[34px] sm:w-[61px] sm:h-[61px] flex items-center justify-center bg-[#101E71] border-[.3px] border-[#374CC4] rounded-full"
               >
                 <Add />
               </Link>
@@ -53,7 +54,7 @@ function Navbar() {
               </Link> */}
               <Link
                 to="/dashboard/folders/123"
-                className="w-[32px] h-[32px] mr-3 sm:w-[61px] sm:h-[61px] flex items-center justify-center bg-[#101E71] border-[.3px] border-[#374CC4] rounded-full"
+                className="w-[34px] h-[34px] mr-3 sm:w-[61px] sm:h-[61px] flex items-center justify-center bg-[#101E71] border-[.3px] border-[#374CC4] rounded-full"
               >
                 <Folder />
               </Link>
