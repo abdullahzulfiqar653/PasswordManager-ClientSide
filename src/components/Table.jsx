@@ -6,7 +6,7 @@ const PasswordTable = ({ data, handleRowClick }) => {
   const { search } = useAuth();
   return (
     <table className="w-full text-sm text-left">
-      <thead className="text-xs text-gray-700 uppercase bg-[#010E59]">
+      <thead className="text-xs text-gray-700 uppercase z-[3] bg-[#010E59]">
         <tr>
           <th scope="col" className="p-4">
             <div className="flex items-center">

@@ -11,9 +11,15 @@ function Navbar() {
 
   return (
     <header className="bg-transparent z-10 relative">
+      
       <section className="md:container">
-        <nav className="flex justify-between items-center py-[16px] gradient-border gap-[26px]">
-          <Link to="/" className="flex items-center gap-[7px]  md:gap-[15px]">
+        <nav className="relative flex justify-between items-center py-[16px] gradient-border gap-[26px]">
+        <img
+        src="/dots.svg"
+        className="absolute w-full top-3 z-[1]"
+        />
+        {/* <img src="/HomeSideShade.png" className="absolute top-[60px] right-[200px] w-[900px]" /> */}
+          <Link to="/" className="flex items-center gap-[7px]  md:gap-[15px] z-[2]">
             <img
               src="/logov2.svg"
               className="w-full sm:w-[70px] cursor-pointer ml-4 md:ml-0"
@@ -22,8 +28,8 @@ function Navbar() {
               Password Manager
             </h2>
           </Link>
-          <div className="flex-1 items-center gap-[18px] flex justify-end">
-            <div className="relative flex-1 hidden lg:block">
+          <div className="flex-1 items-center gap-[18px] flex justify-end z-[2]">
+            <div className="relative flex-1 hidden md:block">
               <Search />
               <input
                 className="dm-sans w-full border-[1px] rounded-[12px] border-[#374CC4] outline-none bg-[#101E71] py-[11px] pl-[41px] px-[24px] placeholder:text-[#DFDFDF36] text-white text-[16px] leading-[32px] font-[400]"
@@ -32,7 +38,7 @@ function Navbar() {
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
-            <div className="flex justify-end gap-[5px] md:gap-[19px]">
+            <div className="flex justify-end gap-[5px] md:gap-[19px] z-[2]">
               <Link
                 onClick={() => handleGeneratePassVisibility('navbar')}
                 className="w-[32px] h-[32px] sm:w-[61px] sm:h-[61px] flex items-center justify-center bg-[#101E71] border-[.3px] border-[#374CC4] rounded-full"
