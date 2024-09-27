@@ -54,7 +54,7 @@ const PasswordTable = ({ data, handleRowClick }) => {
       </thead>
       <tbody>
         {data?.results
-          .filter((item) => item.title.includes(search))
+          .filter((item) =>item?.title.toLowerCase().includes(search.toLowerCase()))
           .map((item, index) => (
             <tr
               key={index}
