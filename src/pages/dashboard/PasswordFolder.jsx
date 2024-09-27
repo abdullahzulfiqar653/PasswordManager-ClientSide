@@ -12,7 +12,7 @@ import useGetUserPasswords from "../../hooks/useGetUserPasswords";
 
 const PasswordFolder = () => {
   const navigate = useNavigate();
-  const { isDesktop } = useAuth();
+  const { isDesktop ,search} = useAuth();
   const [activeTab, setActiveTab] = useState(0);
   const { data, isLoading, refetch } = useGetUserPasswords();
 
@@ -57,7 +57,9 @@ const PasswordFolder = () => {
         Passwords
       </h3>
       <div className="flex flex-col gap-[11px]">
-        {data?.results.map((passWordRecord, index) => (
+      {data?.results
+          .filter((item) =>item?.title.toLowerCase().includes(search.toLowerCase()))
+          .map((passWordRecord, index) => (
           <div
             key={index}
             className="flex flex-col gap-[2px] rounded-[6px] bg-[#0E1A60]"
